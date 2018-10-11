@@ -1,0 +1,50 @@
+apply plugin: 'java'
+apply plugin: 'ear'
+version "1.0"
+
+defaultTasks = ['clean', 'flyJar']
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly fileTree(dir: '../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/', include: '**/*.jar')
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
+    
+    earlib group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
+
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+            outputDir = file('out/bin')
+            compileClasspath += configurations.compileOnly
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+
+    }
+}
+
+
+task flyJar(type: Jar) {
+
+    baseName = 'flyway'
+    classifier = 'ejb'
+    version = this.version
+
+    from sourceSets.main.output
+    destinationDir = file("out/jars")
+
+}
+
+task list(dependsOn: configurations.compile) {
+    doLast {
+        println "classpath = ${configurations.compile.collect { File file -> file.name }}"
+    }
+}

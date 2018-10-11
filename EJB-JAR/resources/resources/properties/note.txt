@@ -1,0 +1,51 @@
+/*
+1. several source sets can be defined here. fancy variable.
+2. davon kann es meherere geben  "srcDir"-> "srcDirs in einer Source.
+3. in settings.gradle könne alle darunterliegenedn Projekte gefunden und unter den Ordnernamen eingebunden werden
+4. classpath sourceSets.main.runtimeClasspath == sourceSet.output + project.configurations.runtime
+ */
+
+
+ /*
+ 0. 1,2,3, sind mitgelieferte configurations der dependencies fom plugin "java"
+ 1. compile: need to compile an run the application
+ 2. runtime: don't need for compilation, need at execution
+ 3. provided: the java container has this dependencies
+ 4. ladet alle libs aus wildfly
+ 5. compileOnly ist für jar , wie  provided in war oder ear
+  */
+
+
+// overwrite name
+//archiveName = 'ejb2.jar'
+
+// print dependencies from all configurations
+// print compile classes
+
+
+
+
+// jar {
+//    from sourceSets.main.output
+//    into('/resources') {
+//        from sourceSets.main.resources
+//    }
+//    baseName = 'EJBjar'
+//    version = '1'
+//    archiveName = 'ejb.jar'
+//    destinationDir = file("out/jars")
+//
+//
+//}
+
+//     manifest.attributes(
+//            "Implementation-Version": version,
+//            "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+
+
+
+task printDeps(dependsOn: build) {
+    doLast {
+        configurations*.dependencies.each { println it }
+    }
+}
