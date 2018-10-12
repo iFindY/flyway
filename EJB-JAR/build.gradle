@@ -19,7 +19,7 @@ dependencies {
 
 sourceSets {
     main {
-        java {
+        java { 
             srcDirs = ['src']
             outputDir = file('out/bin')
             compileClasspath += configurations.compileOnly
@@ -38,7 +38,7 @@ task flyJar(type: Jar) {
     destinationDir = file("out/jars")
 
     from("resources") {
-        include "**"
+        include "**"   
         exclude "xml"
         into "META-INF"
     }
