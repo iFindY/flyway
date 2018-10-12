@@ -5,6 +5,7 @@ import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
@@ -23,16 +24,11 @@ public class FlyWayImpl implements FlyWay {
     private Flyway flyway;
     private Properties flyWayProps;
 
-
-    private FlyWayImpl() throws SQLException, IOException {
-        this.flyWayProps = new Properties();
-        this.flyway = new Flyway();
+    @PostConstruct
+    private void init() {
         this.readProperties();
-        this.migrate();
-        LOGGER.warn("Database '{}' successfully migrated", dataSource.getConnection().getMetaData().getDatabaseProductName());
-
+        this.setupFlyway();
     }
-
 
     // delete all data and set baseline
     @Override
@@ -71,6 +67,21 @@ public class FlyWayImpl implements FlyWay {
         flyway.baseline();
     }
 
+    // populate flyway with settings
+    private void setupFlyway() {
+        this.flyway = Flyway.configure()
+                .dataSource(dataSource)
+                .table(flyWayProps.getProperty("flyway.table"))
+                .locations(flyWayProps.getProperty("flyway.locations"))
+                .baselineDescription(flyWayProps.getProperty("flyway.locations"))
+                .baselineVersion(flyWayProps.getProperty("flyway.baselineVersion"))
+                .baselineOnMigrate(Boolean.valueOf(flyWayProps.getProperty("flyway.baselineOnMigrate")))
+                .ignoreMissingMigrations(Boolean.valueOf(flyWayProps.getProperty("flyway.ignoreMissingMigrations")))
+                .cleanOnValidationError(Boolean.valueOf(flyWayProps.getProperty("flyway.cleanOnValidationError")))
+                .installedBy(flyWayProps.getProperty("flyway.installedBy"))
+                .load();
+    }
+
     // get schema version Table
     @Override
     public void info() {
@@ -79,15 +90,20 @@ public class FlyWayImpl implements FlyWay {
     }
 
 
-    //TODO set baseline on migrate
     // read property file
-    private void readProperties() throws IOException {
-        InputStream input = Thread.currentThread()
+    private void readProperties() {
+        flyWayProps = new Properties();
+        try (InputStream input = Thread.currentThread()
                 .getContextClassLoader()
-                .getResourceAsStream("resources/properties/flyway.properties");
-        flyWayProps.load(input);
-        flyWayProps.forEach((x, y) -> LOGGER.warn("Flyway-Migration Settings: {} = {}", x, y));
-        flyway.setDataSource(dataSource);
-        flyway.configure(flyWayProps);
+                .getResourceAsStream("resources/properties/flyway.properties")) {
+            flyWayProps.load(input);
+            flyWayProps.forEach((x, y) -> LOGGER.warn("Flyway-Migration Settings: {} = {}", x, y));
+
+        } catch (IOException e) {
+            LOGGER.error("can not find file => \n", e.getCause());
+        }
+
     }
+
+
 }
