@@ -2,20 +2,24 @@ package de.arkadi.tryOut.server;
 
 public class HelloUserBean {
 
-  private String creator;
+    private String creator;
 
-  public void sayHello(String s) {
+    public HelloUserBean(String creator) {
+        this.creator = creator;
+    }
 
-    System.out.println(s);
-  }
+    public void sayHello(String s) {
 
-  public void setCreator(String creator) {
+        System.out.println(s);
+    }
 
-    this.creator = creator;
-  }
+    public void setCreator(String creator) {
 
-  public void printCreator() {
+        this.creator = creator;
+    }
 
-    System.out.println(creator);
-  }
+    public void printCreator() {
+
+        System.out.println(creator);
+    }
 }

@@ -7,14 +7,15 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.ejb.Singleton;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.Properties;
 
+@Singleton
 @TransactionManagement(value = TransactionManagementType.BEAN)
 public class FlyWayImpl implements FlyWay {
 
@@ -24,8 +25,9 @@ public class FlyWayImpl implements FlyWay {
     private Flyway flyway;
     private Properties flyWayProps;
 
+
     @PostConstruct
-    private void init() {
+    public void init() {
         this.readProperties();
         this.setupFlyway();
     }

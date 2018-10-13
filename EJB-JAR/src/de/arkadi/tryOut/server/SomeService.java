@@ -22,9 +22,8 @@ public class SomeService {
   double myDouble;
   @Inject
   Arkadi arkadi;
-
   @Inject
-  HelloUserBean hellou;
+  HelloUserBean helloU;
 
   public void shout() {
 
@@ -36,12 +35,12 @@ public class SomeService {
     System.out.println(myString2);
   }
 
-  @Inject
+  @Inject()
   public void sayMyName(Arkadi arkadi, HelloUserBean helloUserBean) {
 
     arkadi.getCreator();
     helloUserBean.printCreator();
-    hellou.sayHello("hellou my Q");
+    helloU.sayHello("hellou my Q");
   }
 
 

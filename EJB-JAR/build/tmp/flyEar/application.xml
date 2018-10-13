@@ -3,7 +3,7 @@
   <application-name>flyway</application-name>
   <display-name>flyway</display-name>
   <module>
-    <ejb>flyway-1.0-ejb.jar</ejb>
+    <java>flyway-1.0-ejb.jar</java>
   </module>
   <library-directory>lib</library-directory>
 </application>

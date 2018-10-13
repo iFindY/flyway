@@ -2,16 +2,45 @@ apply plugin: 'java'
 apply plugin: 'ear'
 version "1.0"
 
+/* Source and Target Java Version */
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+/* information about our source code properties */
+compileJava.options.debugOptions.debugLevel = "source,lines,vars"
+compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
+
+/* Group of the output file */
+group 'de.arcadius'
+
 defaultTasks = ['clean', 'flyJar', 'flyEar']
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    compileOnly fileTree(dir: '../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/', include: '**/*.jar')
-    compile group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
+/*configuration that represent 2 types of dependence that i have in my project*/
+configurations {
+    /* Jars files to copy to JBOSS deploy lib */
+    deployLib {
+        transitive = false
+    }
 
+    /* Jar files that can not be copy to JBOSS deploy directory */
+    noDeployLib {
+        transitive = false
+    }
+
+    compile.extendsFrom deployLib, noDeployLib
+}
+
+
+dependencies {
+    noDeployLib fileTree(dir: '../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/', include: '**/*.jar')
+    deployLib group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
+    deployLib files('../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/javax/enterprise/api/main/cdi-api-2.0.SP1.jar')
+
+    //earlib fileTree(dir: '../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/', include: '**/*.jar')
     earlib group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
 
 }
@@ -19,13 +48,26 @@ dependencies {
 
 sourceSets {
     main {
-        java { 
+        java {
             srcDirs = ['src']
             outputDir = file('out/bin')
-            compileClasspath += configurations.compileOnly
+            //compileClasspath += configurations.deployLib
         }
     }
 }
+
+
+compileJava {
+    targetCompatibility = 1.8
+    sourceCompatibility = 1.8
+    options.deprecation = false
+    options.warnings = false
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+    print options.compilerArgs
+
+}
+
 
 
 task flyJar(type: Jar) {
@@ -37,34 +79,42 @@ task flyJar(type: Jar) {
     from sourceSets.main.output
     destinationDir = file("out/jars")
 
-    from("resources") {
-        include "**"   
-        exclude "xml"
-        into "META-INF"
+
+    into('META-INF') {
+        from 'resources/xml'
+
+
+        from('resources') {
+            exclude 'xml'
+        }
     }
 
-    from("resources/xml") {
-        include "**"
-        into "META-INF"
-    }
+    manifest.attributes(
+            'Class-Path': configurations.deployLib.files.collect { 'lib/' + it.name }.join(' ')
+    )
 
 }
 
 task flyEar(type: Ear) {
     dependsOn flyJar
-    from flyJar
+    from flyJar exclude("de/**")
     libDirName 'lib'
     destinationDir = file("out/jars")
     deploymentDescriptor {
         applicationName = "flyway"
         displayName = "flyway"
-        module("flyway-1.0-ejb.jar", "ejb")
+        module("flyway-1.0-ejb.jar", "java")
     }
+
 }
 
 
-task list(dependsOn: configurations.compile) {
+task list(dependsOn: configurations.deployLib) {
     doLast {
-        println "classpath = ${configurations.compile.collect { File file -> file.name }}"
+        println "classpath = ${configurations.deployLib.collect { File file -> file.name }}"
     }
+}
+
+ext {
+    startTime = System.currentTimeMillis()
 }

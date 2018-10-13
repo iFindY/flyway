@@ -1,28 +1,31 @@
 package de.arkadi.tryOut.model;
 
-import java.io.Serializable;
 
-public class Arkadi implements Serializable {
+public class Arkadi {
+    private String creator;
 
-  private String creator;
+    public Arkadi(String creator) {
+        this.creator = creator;
+    }
 
-  public void sayKu() {
 
-    System.out.println("KU!");
-  }
+    public void sayKu() {
 
-  public void init() {
+        System.out.println("KU!");
+    }
 
-    System.out.println("Arkadi is online");
-  }
+    public void init() {
 
-  public void setCreator(String creator) {
+        System.out.println("Arkadi is online");
+    }
 
-    this.creator = creator;
-  }
+    public void setCreator(String creator) {
 
-  public void getCreator() {
+        this.creator = creator;
+    }
 
-    System.out.println(creator);
-  }
+    public void getCreator() {
+
+        System.out.println(creator);
+    }
 }
