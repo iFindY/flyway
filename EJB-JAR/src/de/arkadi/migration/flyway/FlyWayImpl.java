@@ -97,7 +97,7 @@ public class FlyWayImpl implements FlyWay {
         flyWayProps = new Properties();
         try (InputStream input = Thread.currentThread()
                 .getContextClassLoader()
-                .getResourceAsStream("resources/properties/flyway.properties")) {
+                .getResourceAsStream("META-INF/properties/flyway.properties")) {
             flyWayProps.load(input);
             flyWayProps.forEach((x, y) -> LOGGER.warn("Flyway-Migration Settings: {} = {}", x, y));
 
