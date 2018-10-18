@@ -13,7 +13,7 @@ compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
 /* Group of the output file */
 group 'de.arcadius'
 
-defaultTasks = ['clean', 'flyJar', 'flyEar']
+defaultTasks = ['flyEar']
 
 repositories {
     mavenCentral()
@@ -83,9 +83,10 @@ task flyJar(type: Jar) {
     into('META-INF') {
         from 'resources/xml'
 
-
         from('resources') {
             exclude 'xml'
+            rename '(.*)_(.*).sql', '$2__$1.sql'
+
         }
     }
 

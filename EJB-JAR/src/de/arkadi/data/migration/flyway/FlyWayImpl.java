@@ -1,27 +1,33 @@
-package de.arkadi.migration.flyway;
+package de.arkadi.data.migration.flyway;
 
 
+import de.arkadi.Interceptors.migration.Loggable;
+import de.arkadi.producer.Produce;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.MigrationInfo;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.ejb.Singleton;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
-@Singleton
+@Loggable
 @TransactionManagement(value = TransactionManagementType.BEAN)
 public class FlyWayImpl implements FlyWay {
 
     @Resource
     DataSource dataSource;
-    private static final Logger LOGGER = LoggerFactory.getLogger(FlyWayImpl.class);
+    @Inject
+    @Produce(Produce.Type.slf4j)
+    private Logger LOGGER;
+    //private static final Logger LOGGER = LoggerFactory.getLogger(FlyWayImpl.class);
     private Flyway flyway;
     private Properties flyWayProps;
 
@@ -50,11 +56,12 @@ public class FlyWayImpl implements FlyWay {
 
     }
 
+    //TODO brich das auf einzelen methoden runter die du intern aufrufst damit AOP greift
     // migrate new not applied sql scripts
     @Override
     public void migrate() {
         LOGGER.warn("FlyWay-Migration: {}", "pending migration");
-        flyway.info().pending();
+        Arrays.stream(flyway.info().pending()).map(MigrationInfo::getVersion).forEach(System.out::println);
         LOGGER.warn("FlyWay-Migration: {}", "migration database");
         flyway.migrate();
         LOGGER.warn("FlyWay-Migration: {}", "applied migrations");
@@ -75,12 +82,13 @@ public class FlyWayImpl implements FlyWay {
                 .dataSource(dataSource)
                 .table(flyWayProps.getProperty("flyway.table"))
                 .locations(flyWayProps.getProperty("flyway.locations"))
-                .baselineDescription(flyWayProps.getProperty("flyway.locations"))
+                .installedBy(flyWayProps.getProperty("flyway.installedBy"))
                 .baselineVersion(flyWayProps.getProperty("flyway.baselineVersion"))
+                .sqlMigrationPrefix(flyWayProps.getProperty("flyway.sqlMigrationPrefix"))
+                .baselineDescription(flyWayProps.getProperty("flyway.baselineDescription"))
                 .baselineOnMigrate(Boolean.valueOf(flyWayProps.getProperty("flyway.baselineOnMigrate")))
                 .ignoreMissingMigrations(Boolean.valueOf(flyWayProps.getProperty("flyway.ignoreMissingMigrations")))
                 .cleanOnValidationError(Boolean.valueOf(flyWayProps.getProperty("flyway.cleanOnValidationError")))
-                .installedBy(flyWayProps.getProperty("flyway.installedBy"))
                 .load();
     }
 
