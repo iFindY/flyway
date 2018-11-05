@@ -103,14 +103,20 @@ task flyJar(type: Jar) {
 
 task flyEar(type: Ear) {
     dependsOn flyJar
-    from flyJar exclude("de/**")
     libDirName 'lib'
     destinationDir = file("out/jars")
+    exclude {sourceSets.main.resources.asFileTree }
+    
+
     deploymentDescriptor {
         applicationName = "flyway"
         displayName = "flyway"
         module("flyway-1.0-ejb.jar", "java")
     }
+    from(flyJar) {
+        include("*.jar")
+    }
+
 
 }
 
