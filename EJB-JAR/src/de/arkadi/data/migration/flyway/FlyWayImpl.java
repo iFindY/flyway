@@ -27,15 +27,16 @@ public class FlyWayImpl implements FlyWay {
     @Inject
     @Produce(Produce.Type.slf4j)
     private Logger LOGGER;
-    //private static final Logger LOGGER = LoggerFactory.getLogger(FlyWayImpl.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(FlyWayCore.class);
     private Flyway flyway;
     private Properties flyWayProps;
 
-
-    @PostConstruct
-    public void init() {
-        this.readProperties();
-        this.setupFlyway();
+    // create a specific version controller
+    public static FlyWay create(String property) {
+        FlyWayImpl flyWay = new FlyWayImpl();
+        flyWay.readProperties(property);
+        flyWay.setupFlyway();
+        return flyWay;
     }
 
     // delete all data and set baseline
@@ -56,7 +57,7 @@ public class FlyWayImpl implements FlyWay {
 
     }
 
-    //TODO brich das auf einzelen methoden runter die du intern aufrufst damit AOP greift
+    //TODO brich das auf einzelen methoden runter, die du intern aufrufst, damit AOP greift
     // migrate new not applied sql scripts
     @Override
     public void migrate() {
@@ -101,11 +102,11 @@ public class FlyWayImpl implements FlyWay {
 
 
     // read property file
-    private void readProperties() {
+    private void readProperties(String property) {
         flyWayProps = new Properties();
         try (InputStream input = Thread.currentThread()
                 .getContextClassLoader()
-                .getResourceAsStream("META-INF/properties/flyway.properties")) {
+                .getResourceAsStream("META-INF/properties/" + property)) {
             flyWayProps.load(input);
             flyWayProps.forEach((x, y) -> LOGGER.warn("Flyway-Migration Settings: {} = {}", x, y));
 

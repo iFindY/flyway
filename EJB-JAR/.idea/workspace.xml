@@ -1,49 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2f2df78-e402-4d26-89f1-b9a0475a90d5" name="Default Changelist" comment="split sql in 3 modules">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b95b2c01-1b15-4447-a82b-e940ebfe75f0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b95b2c01-1b15-4447-a82b-e940ebfe75f0/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+    <list default="true" id="e2f2df78-e402-4d26-89f1-b9a0475a90d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/java-compiler-args.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/java-compiler-args.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/flyJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/flyJar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/EJB-JAR-1.0.ear" beforeDir="false" afterPath="$PROJECT_DIR$/out/jars/EJB-JAR-1.0.ear" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/beans.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/properties/flyway.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/properties/note.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/baseline/iPIM CREATE VIEW.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/baseline/iPIM CREATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/baseline/iPIM INSERT.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.01__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.02__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.03__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.04__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.05__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.06__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.07__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.08__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.09__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.0__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.10__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.11__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.12__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.13__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.0.14__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.2.01__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.2.02__UPDATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/jars/flyway-1.0-ejb/META-INF/sql/migration/v4.2.0__UPDATE.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/arkadi/initialisation/ApplicationInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/arkadi/initialisation/ApplicationInitializer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -115,30 +78,34 @@
         <counts>
           <entry key="class" value="3" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="1" />
+          <entry key="java" value="4" />
           <entry key="sql" value="4" />
           <entry key="txt" value="1" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SQL" value="4" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gradle" value="721" />
-          <entry key="txt" value="32" />
+          <entry key="gradle" value="726" />
+          <entry key="java" value="386" />
+          <entry key="txt" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="721" />
-          <entry key="PLAIN_TEXT" value="32" />
+          <entry key="Groovy" value="726" />
+          <entry key="JAVA" value="386" />
+          <entry key="PLAIN_TEXT" value="53" />
         </counts>
       </usages-collector>
     </session>
@@ -148,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/arkadi/initialisation/ApplicationInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            <state relative-caret-position="322">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,16 +124,37 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/resources/xml/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1127">
+              <caret line="64" column="77" selection-start-line="64" selection-start-column="77" selection-end-line="64" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="366">
+              <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -366,9 +354,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3082836030636" />
+        <entry key="$PROJECT_DIR$" value="3082837474577" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="2982194949" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="35062115" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -478,6 +466,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayProject.java" />
+        <option value="$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayCore.java" />
+        <option value="$PROJECT_DIR$/src/de/arkadi/initialisation/ApplicationInitializer.java" />
+        <option value="$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayImpl.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
@@ -558,7 +550,52 @@
             <path>
               <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
               <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="jars" type="462c0819:PsiDirectoryNode" />
+              <item name="EJB-JAR-1.0.ear" type="f0208c43:PsiZipFileNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="properties" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="xml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="arkadi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EJB-JAR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EJB-JAR" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="arkadi" type="462c0819:PsiDirectoryNode" />
+              <item name="initialisation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -592,7 +629,7 @@
     <property name="SearchEverywhereHistoryKey" value="push&#9;ACTION&#9;Vcs.Push&#10;commit&#9;ACTION&#9;CheckinProject&#10;git&#9;ACTION&#9;Git.Menu" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541426027346" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541427438295" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -696,7 +733,7 @@
       <option name="presentableId" value="Default" />
       <updated>1541410029975</updated>
       <workItem from="1541410033253" duration="2045000" />
-      <workItem from="1541420979877" duration="5043000" />
+      <workItem from="1541420979877" duration="6453000" />
     </task>
     <task id="LOCAL-00001" summary="split sql in 3 modules">
       <created>1541424482028</created>
@@ -705,11 +742,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541424482028</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="clean ear build">
+      <created>1541426042811</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541426042811</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7088000" />
+    <option name="totallyTimeSpent" value="8498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -726,7 +770,7 @@
       <window_info id="JavaEE:App" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32970297" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32970297" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32871288" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -761,7 +805,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="split sql in 3 modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="split sql in 3 modules" />
+    <MESSAGE value="clean ear build" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean ear build" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/scoop/apps/gradle/4.0/lib/gradle-core-4.0.jar!/org/gradle/api/tasks/AbstractCopyTask.class">
@@ -797,20 +842,47 @@
         <state relative-caret-position="-920" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/arkadi/initialisation/ApplicationInitializer.java">
+    <entry file="file://$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayProject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="506">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/arkadi/data/migration/flyway/FlyWayImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="64" column="77" selection-start-line="64" selection-start-column="77" selection-end-line="64" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/arkadi/initialisation/ApplicationInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/resources/xml/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+        <state relative-caret-position="366">
+          <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
         </state>
       </provider>
     </entry>

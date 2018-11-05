@@ -103,11 +103,9 @@ task flyJar(type: Jar) {
 
 task flyEar(type: Ear) {
     dependsOn flyJar
-    libDirName 'lib'
-    destinationDir = file("out/jars")
     exclude {sourceSets.main.resources.asFileTree }
+    destinationDir = file("out/jars")
     
-
     deploymentDescriptor {
         applicationName = "flyway"
         displayName = "flyway"
