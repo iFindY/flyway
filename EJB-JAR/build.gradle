@@ -36,22 +36,23 @@ configurations {
 
 
 dependencies {
-    noDeployLib fileTree(dir: '../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/', include: '**/*.jar')
-    deployLib group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
-    deployLib files('../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/javax/enterprise/api/main/cdi-api-2.0.SP1.jar')
-
-    //earlib fileTree(dir: '../../../Server/wildfly-14.0.1.Final/modules/system/layers/base/', include: '**/*.jar')
-    earlib group: 'org.flywaydb', name: 'flyway-core', version: '5.2.0'
-
+    noDeployLib('javax:javaee-web-api:8.0')
+    noDeployLib('org.slf4j:slf4j-api:1.7.25')
+    deployLib('org.flywaydb:flyway-core:5.2.0')
+    deployLib('javax.enterprise:cdi-api:2.0.SP1')
+    earlib('org.flywaydb:flyway-core:5.2.0')
 }
 
 
 sourceSets {
     main {
         java {
-            srcDirs = ['src']
-            outputDir = file('out/bin')
-            //compileClasspath += configurations.deployLib
+            setSrcDirs(['src'])
+            setOutputDir(file('out/bin'))
+        }
+        resources {
+            setSrcDirs(['resources'])
+            output.resourcesDir = file('out/resources')
         }
     }
 }
@@ -75,18 +76,22 @@ task flyJar(type: Jar) {
     baseName = 'flyway'
     classifier = 'ejb'
     version = this.version
-
-    from sourceSets.main.output
     destinationDir = file("out/jars")
 
+    from(sourceSets.main.output) {
+        include("de/**")
+    }
 
     into('META-INF') {
-        from 'resources/xml'
-
-        from('resources') {
-            exclude 'xml'
+        from(sourceSets.main.output) {
+            include("sql/**")
             rename '(.*)_(.*).sql', '$2__$1.sql'
-
+        }
+        from(sourceSets.main.output) {
+            include("properties/*.properties")
+        }
+        from(sourceSets.main.resources.files) {
+            include("*.xml")
         }
     }
 
