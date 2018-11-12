@@ -13,11 +13,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Qualifier
 @Retention(RUNTIME)
 @Target({FIELD, TYPE, METHOD})
-public @interface Produce {
+public @interface LoggingUtils {
     Type value();
+
     enum Type {
-        util,
-        slf4j
+        UTIL,
+        SLF4J
     }
 }
 

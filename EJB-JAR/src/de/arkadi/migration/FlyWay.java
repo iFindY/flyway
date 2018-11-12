@@ -1,4 +1,4 @@
-package de.arkadi.data.migration.flyway;
+package de.arkadi.migration;
 
 public interface FlyWay {
 

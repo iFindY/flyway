@@ -1,6 +1,6 @@
-package de.arkadi.Interceptors.migration;
+package de.arkadi.Interceptors;
 
-import de.arkadi.producer.Produce;
+import de.arkadi.producer.LoggingUtils;
 
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
@@ -8,13 +8,15 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import java.util.logging.Logger;
 
+import static de.arkadi.producer.LoggingUtils.Type.UTIL;
+
 
 @Interceptor
 @Loggable
 public class LoggingInterceptor {
 
     @Inject
-    @Produce(Produce.Type.util)
+    @LoggingUtils(UTIL)
     private Logger logger;
 
     @AroundInvoke
@@ -23,10 +25,11 @@ public class LoggingInterceptor {
         logger.info("IN " + ic.getTimer());
         try {
             logger.info(ic.getContextData().keySet().toString());
+            logger.info("hi im here ");
             return ic.proceed();
         } finally {
             logger.exiting(ic.getTarget().getClass().getName(), ic.getMethod().getName());
-            logger.info("OUT " + ic.getTimer());
+            logger.info("hi im out here !!");
 
         }
     }

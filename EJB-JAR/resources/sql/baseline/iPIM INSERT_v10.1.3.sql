@@ -161,12 +161,12 @@ INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CRE
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140060, 'Product detail - Product Texts Edit - Add tab', null, 141010, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140061, 'Product detail - Product Texts Edit - Remove tab', null, 141010, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140062, 'Product detail - Product Texts Edit - Copy tab', null, 141010, 1, sysdate, sysdate, 1, 1);
-INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140063, 'Product detail - Product Texts Edit - Supplier data', null, 141010, 1, sysdate, sysdate, 1, 1);
+INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140063, 'Product detail - Product Texts Edit - Supplier migration', null, 141010, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140064, 'Product detail - Product Texts Edit - HTML editor', null, 141010, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140065, 'Product detail - Product Texts Edit - HTML editor source edit', null, 141010, 1, sysdate, sysdate, 1, 1);
-INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140071, 'Product detail - Items Edit - Supplier data', null, 141007, 1, sysdate, sysdate, 1, 1);
+INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140071, 'Product detail - Items Edit - Supplier migration', null, 141007, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140072, 'Product detail - Items Edit - Move items to another parent', null, 141007, 1, sysdate, sysdate, 1, 1);
-INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140073, 'Product detail - Items Edit - Copy data', null, 141007, 1, sysdate, sysdate, 1, 1);
+INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140073, 'Product detail - Items Edit - Copy migration', null, 141007, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140074, 'Product detail - Items Edit - Sequence', null, 141007, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140075, 'Product detail - Items Edit - Add item', null, 141007, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140076, 'Product detail - Items Edit - Remove item', null, 141007, 1, sysdate, sysdate, 1, 1);
@@ -193,7 +193,7 @@ INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CRE
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140100, 'Product detail - Asset Tab Edit - Remove asset relation', null, 141098, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140101, 'Product detail - Asset Tab Edit - Copy asset relations', null, 141098, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140102, 'Product detail - Asset Tab Edit - Drag and drop assets', null, 141098, 1, sysdate, sysdate, 1, 1);
-INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140103, 'Product detail - Asset Tab Edit - Supplier data', null, 141098, 1, sysdate, sysdate, 1, 1);
+INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140103, 'Product detail - Asset Tab Edit - Supplier migration', null, 141098, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140104, 'Product detail - Asset Tab Edit - Drag assets directly', null, 141098, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (140110, 'Product detail - Product Composition View', null, 140000, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (141110, 'Product detail - Product Composition Edit', null, 140000, 1, sysdate, sysdate, 1, 1);
@@ -269,7 +269,7 @@ INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CRE
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180012, 'Asset - Search - Remove Usage', null, 180001, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180013, 'Asset - Search - Upload new version', null, 180001, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180014, 'Asset - Search - Remove assets', null, 180001, 1, sysdate, sysdate, 1, 1);
-INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180015, 'Asset - Search - Update meta data', null, 180001, 1, sysdate, sysdate, 1, 1);
+INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180015, 'Asset - Search - Update meta migration', null, 180001, 1, sysdate, sysdate, 1, 1);
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180020, 'Asset - Upload - Button Upload', null, 180002, 1, sysdate, sysdate, 1, 1);
 
 INSERT INTO USER_RIGHT (ID, IDENTIFIER, DESCRIPTION, PARENTID, ISMASTERDATA, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (180030, 'Asset - Usage - Change type of relation', null, 180003, 1, sysdate, sysdate, 1, 1);
@@ -606,10 +606,10 @@ INSERT INTO type_type (id, description, identifier, userright, creationdate, las
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3022,2,3021,'Datenfeed-Mapping-Typ', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3522,1,3021,'Datafeed mapping type', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (10,3008,'CURRENCY', null, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3008,2,3008,'Währung', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3008,2,3008,'Wï¿½hrung', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3508,1,3008,'Currency', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (11,3009,'SIZE', null, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3009,2,3009,'Größe', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3009,2,3009,'Grï¿½ï¿½e', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3509,1,3009,'Size', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (12,3010,'CAPACITY', null, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3010,2,3010,'Volumen', sysdate, sysdate, 1, 1);
@@ -672,7 +672,7 @@ INSERT INTO type_type (id, description, identifier, userright, creationdate, las
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3067,2,3067,'Partnertyp', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3567,1,3067,'Partner type', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (68,3068,'ASSET_SIZE_TYPE', 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3068,2,3068,'Bildgrößentyp', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3068,2,3068,'Bildgrï¿½ï¿½entyp', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3568,1,3068,'Digital asset size type', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (69,3072,'LIST_FOLDER_TYPE', 100005, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3072,2,3072,'Ordnertyp', sysdate, sysdate, 1, 1);
@@ -684,10 +684,10 @@ INSERT INTO type_type (id, description, identifier, userright, creationdate, las
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3077,2,3077,'Textkonfiguration-Mapping-Typ', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3577,1,3077,'Text setup mapping type', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (72,3080,'VALIDITY_SCOPE', 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3080,2,3080,'Gültigkeitsbereich', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3080,2,3080,'Gï¿½ltigkeitsbereich', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3580,1,3080,'Validity scope', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (73,3081,'BUSINESS_RULE_TYPE_GROUP', 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3081,2,3081,'Geschäftsregeltyp', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3081,2,3081,'Geschï¿½ftsregeltyp', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3581,1,3081,'Business rule type', sysdate, sysdate, 1, 1);
 INSERT INTO type_type (id, description, identifier, userright, creationdate, lastmodified, updateuser, createuser) VALUES (74,3082,'PRODUCT_LEVEL', 100005, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (3082,2,3082,'Produktebene', sysdate, sysdate, 1, 1);
@@ -900,13 +900,13 @@ INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, l
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6401,2,6400,'WEBDAV', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6901,1,6400,'WEBDAV', sysdate, sysdate, 1, 1);
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (126,6405,6,'SFTPKEY',3, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6406,2,6405,'SFTP (Schlüssel Authentifizierung)', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6406,2,6405,'SFTP (Schlï¿½ssel Authentifizierung)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6906,1,6405,'SFTP (key authentication)', sysdate, sysdate, 1, 1);
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (185,6360,6,'FTPS_IMPLICIT',4, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6360,2,6360,'FTPS (Implizite Verschlüsselung)', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6360,2,6360,'FTPS (Implizite Verschlï¿½sselung)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6860,1,6360,'FTPS (Implicit encoding)', sysdate, sysdate, 1, 1);
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (186,6361,6,'FTPS_EXPLICIT',5, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6361,2,6361,'FTPS (Explizite Verschlüsselung)', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6361,2,6361,'FTPS (Explizite Verschlï¿½sselung)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6861,1,6361,'FTPS (Explicit encoding)', sysdate, sysdate, 1, 1);
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (196,6439,6,'LOCAL',7, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6439,2,6439,'Lokal', sysdate, sysdate, 1, 1);
@@ -993,7 +993,7 @@ INSERT INTO TYPE (ID, description, TYPE, IDENTIFIER, sequenceno, creationdate, l
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6422,2,6422,'Partnerattribut', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6922,1,6422,'Partner attribute', sysdate, sysdate, 1, 1);
 INSERT INTO TYPE (ID, description, TYPE, IDENTIFIER, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (168,6423,9,'LAST_MODIFIED',0, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6423,2,6423,'Letzte Änderung', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6423,2,6423,'Letzte ï¿½nderung', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6923,1,6423,'Last modified', sysdate, sysdate, 1, 1);
 INSERT INTO TYPE (ID, description, TYPE, IDENTIFIER, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (179, 6427, 9, 'STANDARD_INFO', 0, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6427,2,6427, 'Standard-Infos', sysdate, sysdate, 1, 1);
@@ -1063,7 +1063,7 @@ INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, l
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6356,2,6356,'Lieferant', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6856,1,6356,'Supplier', sysdate, sysdate, 1, 1);
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (162,6357,67,'MERCHANT',0, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6357,2,6357,'Händler', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6357,2,6357,'Hï¿½ndler', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6857,1,6357,'Buyer', sysdate, sysdate, 1, 1);
 --Asset size type
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (172,6103,68,'PICTO',3, sysdate, sysdate, 1, 1);
@@ -1097,7 +1097,7 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6611,1,6111,'Parameter', sysdate, sysdate, 1, 1);
 --Validity scope type
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (187,6429,72,'VALID',0, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6429,2,6429,'Gültige Produkte', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6429,2,6429,'Gï¿½ltige Produkte', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6929,1,6429,'Valid products', sysdate, sysdate, 1, 1);
 INSERT INTO type (id, description, type, identifier, sequenceno, creationdate, lastmodified, updateuser, createuser) VALUES (188,6430,72,'All',0, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (6430,2,6430,'Alle Produkte', sysdate, sysdate, 1, 1);
@@ -1210,11 +1210,11 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5508,1,5008,'km', sysdate, sysdate, 1, 1);
 --Capacity
 INSERT INTO uom (id, description, uomtype, identifier, creationdate, lastmodified, updateuser, createuser) VALUES (18,5009,12,'cm3', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5009,2,5009,'cm³', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5509,1,5009,'cm³', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5009,2,5009,'cmï¿½', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5509,1,5009,'cmï¿½', sysdate, sysdate, 1, 1);
 INSERT INTO uom (id, description, uomtype, identifier, creationdate, lastmodified, updateuser, createuser) VALUES (19,5010,12,'m3', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5010,2,5010,'m³', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5510,1,5010,'m³', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5010,2,5010,'mï¿½', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5510,1,5010,'mï¿½', sysdate, sysdate, 1, 1);
 INSERT INTO uom (id, description, uomtype, identifier, creationdate, lastmodified, updateuser, createuser) VALUES (20,5011,12,'ml', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5011,2,5011,'ml', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (5511,1,5011,'ml', sysdate, sysdate, 1, 1);
@@ -1259,10 +1259,10 @@ INSERT INTO USER_ROLE (ID, IDENTIFIER, DESCRIPTION, ISWORKBOX, ISWORKLIST, EVENT
 INSERT INTO USER_ROLE (ID, IDENTIFIER, DESCRIPTION, ISWORKBOX, ISWORKLIST, EVENTTYPE, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2, 'iSHOP Rating default role', 2022, 0, 1, null, sysdate, sysdate, 1, 1);
 INSERT INTO USER_ROLE (ID, IDENTIFIER, DESCRIPTION, ISWORKBOX, ISWORKLIST, EVENTTYPE, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (5, 'Fetch properties', 2020, 0, 1, null, sysdate, sysdate, 1, 1);
 
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2020, 2, 2020, 'iPIM Standardrolle - bitte nicht löschen', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2020, 2, 2020, 'iPIM Standardrolle - bitte nicht lï¿½schen', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2520, 1, 2020, 'iPIM Standard role - please do not delete', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2021, 2, 2021, 'iPIM Standard "Admin" (User novo) - mit allen Rechten; normalerweise nicht zuweisen.', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2521, 1, 2021, 'iPIM Standard "admin" (user novo) - with all rights, don´t assign generally.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2521, 1, 2021, 'iPIM Standard "admin" (user novo) - with all rights, donï¿½t assign generally.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2022, 2, 2022, 'iPIM Standard "iSHOP" Bewertungsrolle', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (2522, 1, 2022, 'iPIM Standard "iSHOP" Rating role', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (8, 2, 8, 'iAgent-Review-Nachricht', sysdate, sysdate, 1, 1);
@@ -1370,28 +1370,28 @@ INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIF
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (511, 1, 11, 'Stock', sysdate, sysdate, 1, 1);
 
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (14, 'Q1', 14, 'CATEGORY_PARAM', 52, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (14, 2, 14, 'Qualitätsziel: (1) Sehr gut', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (14, 2, 14, 'Qualitï¿½tsziel: (1) Sehr gut', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (514, 1, 14, 'Quality target: (1) Very good', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (15, 'Q2', 15, 'CATEGORY_PARAM', 52, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (15, 2, 15, 'Qualitätsziel: (2) Gut', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (15, 2, 15, 'Qualitï¿½tsziel: (2) Gut', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (515, 1, 15, 'Quality target: (2) Good', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (16, 'Q3', 16, 'CATEGORY_PARAM', 52, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (16, 2, 16, 'Qualitätsziel: (3) Befriedigend', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (16, 2, 16, 'Qualitï¿½tsziel: (3) Befriedigend', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (516, 1, 16, 'Quality target: (3) Satisfactoy', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (17, 'Q4', 17, 'CATEGORY_PARAM', 52, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (17, 2, 17, 'Qualitätsziel: (4) Ausreichend', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (17, 2, 17, 'Qualitï¿½tsziel: (4) Ausreichend', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (517, 1, 17, 'Quality target: (4) Adequate', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (18, 'Q5', 18, 'CATEGORY_PARAM', 52, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (18, 2, 18, 'Qualitätsziel: (5) Mangelhaft', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (18, 2, 18, 'Qualitï¿½tsziel: (5) Mangelhaft', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (518, 1, 18, 'Quality target: (5) Inadequate', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (19, 'Q6', 19, 'CATEGORY_PARAM', 52, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (19, 2, 19, 'Qualitätsziel: (6) Ungenügend', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (19, 2, 19, 'Qualitï¿½tsziel: (6) Ungenï¿½gend', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (519, 1, 19, 'Quality target: (6) Not enough', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (20, 'QualityGrade', 20, 'ALL', 7, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (20, 2, 20, 'Qualitätsgrad', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (20, 2, 20, 'Qualitï¿½tsgrad', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (520, 1, 20, 'Quality rating', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (21, 'SupplierPriority', 21, 'CATEGORY_PARAM', 55, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (21, 2, 21, 'Lieferanten-Priorität', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (21, 2, 21, 'Lieferanten-Prioritï¿½t', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (521, 1, 21, 'Supplier priority', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, ONLYITEMLEVEL, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (22, 'Std_EAN', 72, 'ALL', 35, 104, 1, 1, 0, 158, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) Values (72, 2, 72, 'EAN', sysdate, sysdate, 1, 1);
@@ -1419,17 +1419,17 @@ INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, 
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (80, 2, 80, 'iSHOP Export: Ist iSHOP-Filter', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (580, 1, 80, 'iSHOP export: Is iSHOP filter', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (31, 'ishop_exclude_identifier', 81, 'ATTRIBUTEAV', 6, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (81, 2, 81, 'iSHOP Export: Attribut ausschließen', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (81, 2, 81, 'iSHOP Export: Attribut ausschlieï¿½en', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (581, 1, 81, 'iSHOP Export: Exclude attribute', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (66, 'shop_export_subclient_whitelist', 66, 'CATEGORY_PARAM', 35, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (66, 2, 66, 'iSHOP Export: Aktive Pflegeebenen (Whitelist)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (566, 1, 66, 'iSHOP Export: Activated maintenance level (Whitelist)', sysdate, sysdate, 1, 1);
 
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, RIGHTVIEW, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (28, 'SUPPLIER_ARTICLE_NO', 78, 'ALL', 35, 104, 1, 0, 100005, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (78, 2, 78, 'Lieferantenartikelnummer für Artikelanlage', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (78, 2, 78, 'Lieferantenartikelnummer fï¿½r Artikelanlage', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (578, 1, 78, 'Supplier item number for item creation', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, RIGHTVIEW, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (29, 'SUPPLIER_PRODUCT_NO', 79, 'ALL', 35, 104, 1, 0, 100005, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (79, 2, 79, 'Lieferantenproduktnummer für Produktanlage', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (79, 2, 79, 'Lieferantenproduktnummer fï¿½r Produktanlage', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (579, 1, 79, 'Supplier product number for product creation', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (57, 'USE_IDENTIFIER_FOR_EXPORT', 1057, 'ATTRIBUTEAV', 6, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1057, 2, 1057, 'Export: Identifier als Exportwert nutzen', sysdate, sysdate, 1, 1);
@@ -1446,10 +1446,10 @@ INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, 
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (40, 2, 40, 'Pflichttyp (Texte)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (540, 1, 40, 'Mandatory type (texts)', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (41, 'TypeMaxLength', 41, 'TYPE', 5, 104, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (41, 2, 41, 'Maximale Länge (Texte)', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (41, 2, 41, 'Maximale Lï¿½nge (Texte)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (541, 1, 41, 'Maximum length (texts)', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (43, 'TypeRolePrefix', 43, 'TYPE', 35, 104, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (43, 2, 43, 'Rollen-Präfix (Posteingänge)', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (43, 2, 43, 'Rollen-Prï¿½fix (Posteingï¿½nge)', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (543, 1, 43, 'Role prefix (inboxes)', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1080, 'TypeReference', 1080, 'TYPE', 62, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1080, 2, 1080, 'Referenzierter Typ', sysdate, sysdate, 1, 1);
@@ -1475,13 +1475,13 @@ INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, 
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1062, 2, 1062, 'DAM-Dateiendung', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1562, 1, 1062, 'DAM file extension', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, RIGHTEDIT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1063, 'ASSET_FILE_SIZE', 1063, 'ASSET', 35, 104, 158, 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1063, 2, 1063, 'DAM-Dateigröße', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1063, 2, 1063, 'DAM-Dateigrï¿½ï¿½e', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1563, 1, 1063, 'DAM file size', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, RIGHTEDIT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1064, 'ASSET_HEIGHT', 1064, 'ASSET', 5, 104, 158, 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1064, 2, 1064, 'Höhe', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1064, 2, 1064, 'Hï¿½he', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1564, 1, 1064, 'Height', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, RIGHTEDIT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1065, 'ASSET_HORIZONTAL_RESOLUTION', 1065, 'ASSET', 5, 104, 158, 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1065, 2, 1065, 'Horizontale Auflösung', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1065, 2, 1065, 'Horizontale Auflï¿½sung', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1565, 1, 1065, 'Horizontal resolution', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, RIGHTEDIT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1066, 'ASSET_IMAGE_BIT_DEPTH', 1066, 'ASSET', 5, 104, 158, 100005, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1066, 2, 1066, 'Bild-Bit-Tiefe', sysdate, sysdate, 1, 1);
@@ -1505,7 +1505,7 @@ INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, 
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1072, 2, 1072, 'Transparenz', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1572, 1, 1072, 'Transparency', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, RIGHTEDIT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1073, 'ASSET_VERTICAL_RESOLUTION', 1073, 'ASSET', 5, 104, 158, 100005, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1073, 2, 1073, 'Vertikale Auflösung', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1073, 2, 1073, 'Vertikale Auflï¿½sung', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1573, 1, 1073, 'Verticale resolution', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, GROUPNAME, RIGHTEDIT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1074, 'ASSET_WIDTH', 1074, 'ASSET', 5, 104, 158, 100005, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1074, 2, 1074, 'Breite', sysdate, sysdate, 1, 1);
@@ -1531,7 +1531,7 @@ INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, 
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1078, 2, 1078, 'Pflichtsprachen', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1578, 1, 1078, 'Mandatory languages', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1078, 'MANDATORY_LOCALES', 1078, 'CATEGORY_PARAM', 61, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1079, 2, 1079, 'Datenebene für Kategoriemapping', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1079, 2, 1079, 'Datenebene fï¿½r Kategoriemapping', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1579, 1, 1079, 'Data level for category mapping', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE (ID, IDENTIFIER, DESCRIPTION, SCOPENAME, TYPE, MANDATORY, INHERITABLE, DIMENSION, GROUPNAME, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (1079, 'MAPPING_LEVEL', 1079, 'CATEGORY_PARAM', 60, 104, 0, 0, 158, sysdate, sysdate, 1, 1);
 
@@ -1560,7 +1560,7 @@ INSERT INTO ATTRIBUTE_VALUE (ID, ATTRIBUTE, IDENTIFIER, DESCRIPTION, DEFAULTVALU
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (117, 2, 117, '(5) Mangelhaft', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (617, 1, 117, '(5) Inadequate', sysdate, sysdate, 1, 1);
 INSERT INTO ATTRIBUTE_VALUE (ID, ATTRIBUTE, IDENTIFIER, DESCRIPTION, DEFAULTVALUE, FREETEXT, NULLVALUE, SEQUENCENO, IMAGE, CLIENT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (18, 20, 'QG6', 118, 0, 0, 0, 6, null, null, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (118, 2, 118, '(6) Ungenügend', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (118, 2, 118, '(6) Ungenï¿½gend', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (618, 1, 118, '(6) Not enough', sysdate, sysdate, 1, 1);
 
 INSERT INTO ATTRIBUTE_VALUE (ID, ATTRIBUTE, IDENTIFIER, DESCRIPTION, DEFAULTVALUE, FREETEXT, NULLVALUE, SEQUENCENO, IMAGE, CLIENT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (20, 51, 'iPIM', 120, 0, 0, 0, 1, null, null, sysdate, sysdate, 1, 1);
@@ -1602,10 +1602,10 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (4504, 1, 4004, 'Report category mapping coverage', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (4005, 2, 4005, 'Produktnummer, Produktname', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (4505, 1, 4005, 'Product number, Product name', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (4006, 2, 4006, 'Findet alle Produkte in der ausgewählten Kategorie der Quellsortimentsstruktur, die keine Kategorie der ausgewählten Zielsortimentsstruktur zugeordnet haben. Es muss mindestens eine Quellkategorie ausgewählt werden, die als Parameter an den Report übergeben wird. Es werden Produktnummer und Produktname ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (4006, 2, 4006, 'Findet alle Produkte in der ausgewï¿½hlten Kategorie der Quellsortimentsstruktur, die keine Kategorie der ausgewï¿½hlten Zielsortimentsstruktur zugeordnet haben. Es muss mindestens eine Quellkategorie ausgewï¿½hlt werden, die als Parameter an den Report ï¿½bergeben wird. Es werden Produktnummer und Produktname ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (4506, 1, 4006, 'Finds all products of the category choosen in the source product range structure, that is not mapped with an target product range structure. At least a source category must be choosen, that operates as parameter for the report. Product number and product name will be issued.', sysdate, sysdate, 1, 1);
 
---Report 'Unvollständige Produkte'
+--Report 'Unvollstï¿½ndige Produkte'
 INSERT INTO REPORT (ID, IDENTIFIER, DESCRIPTION, QUERY, COLUMNDESCRIPTIONS, PARAMETERS, PARAMETERNAMES, CUSTOMRENDERER, COMMENTS, ONDEMAND, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, NATIVESQL) 
 VALUES (5, 'ReportUnvollstaendigeProdukte', 369188, 'SELECT art.id, art.productNo, lft.text, art.status1, art.status2, art.status3, art.status4, art.creationDate 
 FROM Article art, ArticleAV aav, LocaleFreetext lft, NodeArticleRelation nar 
@@ -1617,13 +1617,13 @@ AND lft.locale.id = ?2
 AND art.articleType.id in (1, 10, 11) 
 AND ((art.status1 <> 2) OR (art.status2 <> 2) OR (art.status3 <> 2) OR (art.status4 <> 2)) 
 AND #LIST_PARAM#nar.node.id in (?1)#LIST_PARAM#', 369189, 'PurchaseCategory, CurrentLocale', 369198, 'String, String, State, State, State, State, Date', 369200, 1, sysdate, sysdate, 1, 1, 0);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369188, 2, 369188, 'Bericht Unvollständige Produkte', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369188, 2, 369188, 'Bericht Unvollstï¿½ndige Produkte', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369688, 1, 369188, 'Report imcomplete products', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369189, 2, 369189, 'Produktnummer, Produktname, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369689, 1, 369189, 'Product number, Product name, State 1, State 2 , State 3, State 4, Creation date', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369198, 2, 369198, 'Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369698, 1, 369198, 'Purchasing category, Language', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369200, 2, 369200, 'Findet alle Produkte in den angegebenen Einkaufskategorien, bei denen mindestens ein Status nicht grün ist. Es muss mindestens eine Einkaufskategorie ausgewählt werden, die als Parameter an den Report übergeben wird. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369200, 2, 369200, 'Findet alle Produkte in den angegebenen Einkaufskategorien, bei denen mindestens ein Status nicht grï¿½n ist. Es muss mindestens eine Einkaufskategorie ausgewï¿½hlt werden, die als Parameter an den Report ï¿½bergeben wird. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369700, 1, 369200, 'Finds all products in the choosen purchasing category, where there is one state not green at least. At least a purchasing category must be choosen, that operates as parameter for the report. Product number, product name, state 1 to 4 and creation date will be issued.', sysdate, sysdate, 1, 1);
 
 --Report 'Produkte ohne Hauptbild'
@@ -1646,7 +1646,7 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369691, 1, 369191, 'Product number, Product name, State1, State2, State3, State4, Creation date', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369199, 2, 369199, 'Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369699, 1, 369199, 'Purchasing category, Language', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369201, 2, 369201, 'Findet alle Produkte in den angegebenen Einkaufskategorien, denen nicht mindestens ein Bild zugeordnet ist. Es muss mindestens eine Einkaufskategorie ausgewählt werden, die als Parameter an den Report übergeben wird. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369201, 2, 369201, 'Findet alle Produkte in den angegebenen Einkaufskategorien, denen nicht mindestens ein Bild zugeordnet ist. Es muss mindestens eine Einkaufskategorie ausgewï¿½hlt werden, die als Parameter an den Report ï¿½bergeben wird. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369701, 1, 369201, 'Finds all products in the choosen purchasing category, that are not assign with one image at least. At least a purchasing category must be choosen, that operates as parameter for the report.', sysdate, sysdate, 1, 1);
 
 --Report 'Produkte ohne Vertriebskanal'
@@ -1669,14 +1669,14 @@ where p.channeltype = 68 and nodeartrel.article = art.id and nodeartrel.dimensio
 369193, 'Date, PurchaseCategory, CurrentLocale', 369194, '1#=#Date', 'String, String, Date, State, State, State, State, Date', 369202, 1, sysdate, sysdate, 1, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369192, 2, 369192, 'Bericht Produkte ohne Vertriebskanal', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369692, 1, 369192, 'Report products without sales channel', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369193, 2, 369193, 'Produktnummer, Produktname, Gültig bis, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369193, 2, 369193, 'Produktnummer, Produktname, Gï¿½ltig bis, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369693, 1, 369193, 'Product number, Product name, Valid until, State1, State2, State3, State4, Creation date', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369194, 2, 369194, 'Gültig bis, Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369194, 2, 369194, 'Gï¿½ltig bis, Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369694, 1, 369194, 'Valid until, Purchasing category, Language', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369202, 2, 369202, 'Findet alle Produkte in den angegebenen Einkaufskategorien, denen kein Vertriebskanal zugeordnet sind und die vom Startzeitpunkt des Reports bis zum im Parameter "Gültig bis" angegebenen Zeitpunkt gültig sind. Die Auswahl mindestens einer Einkaufskategorie ist obligatorisch, die Angabe des Datums "Gültig bis" ist optional. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369202, 2, 369202, 'Findet alle Produkte in den angegebenen Einkaufskategorien, denen kein Vertriebskanal zugeordnet sind und die vom Startzeitpunkt des Reports bis zum im Parameter "Gï¿½ltig bis" angegebenen Zeitpunkt gï¿½ltig sind. Die Auswahl mindestens einer Einkaufskategorie ist obligatorisch, die Angabe des Datums "Gï¿½ltig bis" ist optional. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369702, 1, 369202, 'Finds all products in the choosen purchasing category, that are not assigned to a sales channel and that are valid from start date of the report until the choosen value "Valid until". At least a purchasing category must be choosen set the value "Valid until" is optional. Product number, product name, state 1-4 and the creation date will be issued.', sysdate, sysdate, 1, 1);
 
---Report 'Geänderte Produkte'
+--Report 'Geï¿½nderte Produkte'
 INSERT INTO REPORT (ID, IDENTIFIER, DESCRIPTION, QUERY, COLUMNDESCRIPTIONS, PARAMETERS, PARAMETERNAMES, OPTIONALPARAMETERS, CUSTOMRENDERER, COMMENTS, ONDEMAND, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, NATIVESQL) 
 VALUES (8, 'ReportGeaenderteProdukte', 369195, 'select distinct art.id, art.productNo, lft.text, trunc(al.datemodified), nvl(concat(us.firstname, us.lastname), us.nickname), art.status1, art.status2, art.status3, art.status4, art.creationDate 
 from #SCHEMA#.article art 
@@ -1688,13 +1688,13 @@ inner join #SCHEMA#.node_article_rel nar on art.id = nar.article
 where art.articletype in (1, 10, 11) and aav.attribute = 2 and lft.locale = ?5 and al.article = art.id and al.type in (''insert'',''update'') and al.datemodified between ?1 and ?2 
 and (al.updateuser = case ?3 when -1 then al.updateuser else ?3 end) and #LIST_PARAM#nar.node in (?4)#LIST_PARAM#',
 369196, 'Date, Date, User, PurchaseCategory, CurrentLocale', 369197, '2#=#Date, 3#=#User', 'String, String, Date, String, State, State, State, State, Date', 369203, 1, sysdate, sysdate, 1, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369195, 2, 369195, 'Bericht Geänderte Produkte', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369195, 2, 369195, 'Bericht Geï¿½nderte Produkte', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369695, 1, 369195, 'Report changed products', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369196, 2, 369196, 'Produktnummer, Produktname, Geändert am, Geändert von, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369196, 2, 369196, 'Produktnummer, Produktname, Geï¿½ndert am, Geï¿½ndert von, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369696, 1, 369196, 'Product number, Product name, Changed at, Changed from, State1, State2, State3, State4, Creation date', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369197, 2, 369197, 'Änderungsdatum von, Änderungsdatum bis, Geändert von, Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369197, 2, 369197, 'ï¿½nderungsdatum von, ï¿½nderungsdatum bis, Geï¿½ndert von, Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369697, 1, 369197, 'Change date from, Change date until, Changed by, Purchasing category, Language', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369203, 2, 369203, 'Findet alle Produkte, die vom ausgewählten Anwender im angegebenen Zeitraum geändert wurden. Die Auswahl des Parameters "Änderungsdatum von" sowie mindestens einer Einkaufskategorie ist obligatorisch, die Auswahl der Parameter "Geändert von" und "Änderung bis" ist optional. Es werden Produktnummer, Produktname, Geändert am, Geändert von, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369203, 2, 369203, 'Findet alle Produkte, die vom ausgewï¿½hlten Anwender im angegebenen Zeitraum geï¿½ndert wurden. Die Auswahl des Parameters "ï¿½nderungsdatum von" sowie mindestens einer Einkaufskategorie ist obligatorisch, die Auswahl der Parameter "Geï¿½ndert von" und "ï¿½nderung bis" ist optional. Es werden Produktnummer, Produktname, Geï¿½ndert am, Geï¿½ndert von, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369703, 1, 369203, 'Finds all products, that have been changed by the choosen user in the period of time. At least a purchasing category must be choosen and change date "from" whereas the other parameters are optional. Product number, product name, change at, changed by, State 1-4 and the the creation date of the item will be issued.', sysdate, sysdate, 1, 1);
 
 --Report 'Alle Produkte, bei denen Attribut xyz nicht gepflegt ist'
@@ -1716,7 +1716,7 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369705, 1, 369205, 'Product number, Product name, State1, State2, State3, State4, Creation date', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369206, 2, 369206, 'Attribut, Einkaufskategorie, Sprache', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369706, 1, 369206, 'Attribute, Purchasing category, Language', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369207, 2, 369207, 'Findet alle Produkte, die das ausgewählte Attribut nicht gepflegt haben. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369207, 2, 369207, 'Findet alle Produkte, die das ausgewï¿½hlte Attribut nicht gepflegt haben. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369707, 1, 369207, 'Finds all products, that have no value in the choosen attribute. Product number, product name, state 1-4 and creation date of the item will be issued.', sysdate, sysdate, 1, 1);
 
 --Report 'Textstatus'
@@ -1739,10 +1739,10 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369709, 1, 369209, 'Product number, Product name, State1, State2, State3, State4, Creation date', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369210, 2, 369210, 'Texttyp, Textstatus, Sprache', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369710, 1, 369210, 'Text type, Text state, Language', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369211, 2, 369211, 'Findet alle Produkte mit den entsprechenden Texttypen im gewählten Status. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369211, 2, 369211, 'Findet alle Produkte mit den entsprechenden Texttypen im gewï¿½hlten Status. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (369711, 1, 369211, 'Finds all products with text type in the choosen state. Product number, product name, state 1-4 and creation date of the item will be issued.', sysdate, sysdate, 1, 1);
 
---Report 'Textstatus Übersetzung'
+--Report 'Textstatus ï¿½bersetzung'
 INSERT INTO REPORT (ID, IDENTIFIER, DESCRIPTION, QUERY, COLUMNDESCRIPTIONS, USERRIGHT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, COMMENTS, ONDEMAND, PARAMETERS, PARAMETERNAMES, CUSTOMRENDERER, CUSTOMCLASS, CUSTOMREPORTFILTER, NATIVESQL, OPTIONALPARAMETERS, MAILSETUP) VALUES (11, 'ReportTextstatusUebersetzung', 370001, 'select art.id, art.productNo, lft.text, art.status1, art.status2, art.status3, art.status4, art.creationDate 
 from #SCHEMA#.article art 
 inner join #SCHEMA#.article_av aav 
@@ -1755,9 +1755,9 @@ join #SCHEMA#.locale_freetext lft
 on lft.textId = aav.freetext 
 where aav.attribute = 2 and tab.dimension is null and tab.tabname = ?1 and lt.type = ?2 and lft.locale = ?3 and art.articletype in (1, 10, 11) and tab.deleted = 0
 and not exists (select 1 from #SCHEMA#.locale_text t where t.locale = ?4 and t.type = ?2 and t.textid = tab.content)', 370003, null, sysdate, sysdate, 2, 2, 370002, 1, 'Type=63, Type=70, CurrentLocale, Locale', 370004, 'String, String, State, State, State, State, Date', null, null, 1, null, null);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370001, 2, 370001, 'Bericht Textstatus Übersetzung', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370001, 2, 370001, 'Bericht Textstatus ï¿½bersetzung', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370501, 1, 370001, 'Report text state translation', sysdate, sysdate, 2, 2, null, null);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370002, 2, 370002, 'Findet alle Produkte, mit den entsprechenden Texttypen im gewählten Status, zu denen die entsprechende Übersetzung (bezogen auf Texttyp, Status und Sprache) fehlt. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370002, 2, 370002, 'Findet alle Produkte, mit den entsprechenden Texttypen im gewï¿½hlten Status, zu denen die entsprechende ï¿½bersetzung (bezogen auf Texttyp, Status und Sprache) fehlt. Es werden Produktnummer, Produktname, die Status 1-4 sowie das Anlagedatum des Artikels ausgegeben.', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370502, 1, 370002, 'Finds all products with text type in the choosen state, that have no translation (text type, state und language). Product number, product name, state 1-4 and creation date of the item will be issued.', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370003, 2, 370003, 'Produktnummer, Produktname, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370503, 1, 370003, 'Product number, Product name, State1, State2, State3, State4, Creation date', sysdate, sysdate, 2, 2, null, null);
@@ -1787,7 +1787,7 @@ INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIF
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370506, 1, 370006, 'Produkt number, Product name, Level, Attribute, Attribute text', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370007, 2, 370007, 'Einkaufskategorie, Quellsprache, Zielsprache', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370507, 1, 370007, 'Purchasing category, Source language, Target language', sysdate, sysdate, 2, 2, null, null);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370008, 2, 370008, 'Findet alle Produkte einer gewählten Einkaufskategorie, bei denen für ein Attribut ein Text in der Quellsprache vorliegt, aber kein Text in der Zielsprache hinterlegt ist. Es werden Produktnummer, Produktname, Attribut, Attributtext (in der Quellsprache) ausgegeben.', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370008, 2, 370008, 'Findet alle Produkte einer gewï¿½hlten Einkaufskategorie, bei denen fï¿½r ein Attribut ein Text in der Quellsprache vorliegt, aber kein Text in der Zielsprache hinterlegt ist. Es werden Produktnummer, Produktname, Attribut, Attributtext (in der Quellsprache) ausgegeben.', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370508, 1, 370008, 'Finds all products of a choosen purchasing category, that have a attribute with text in the source language but no text in the target language. Product number, product name, attribute, attribute text (in source language) will be issued.', sysdate, sysdate, 2, 2, null, null);
 
 --Report 'Workflow deadlines due'
@@ -1800,11 +1800,11 @@ on lft.textId = aav.freetext
 join #SCHEMA#.event_detail event 
 on event.article = art.id 
 where aav.attribute = 2 and event.type = ?1 and event.deadline is not null and event.deadline < sysdate + ?2 and lft.locale = ?3 and art.articletype in (1, 10, 11)', 370012, sysdate, sysdate, 2, 2, 1, 'Type=52, Number, CurrentLocale', 370013, 'String, String, State, State, State, State, Date', 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370011, 2, 370011, 'Bericht Workflow - fällige Termine', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370011, 2, 370011, 'Bericht Workflow - fï¿½llige Termine', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370511, 1, 370011, 'Report workflow - outstanding appointments', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370012, 2, 370012, 'Produktnummer, Produktname, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370512, 1, 370012, 'Product number, Product name, State1, State2, State3, State4, Creation date', sysdate, sysdate, 2, 2, null, null);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370013, 2, 370013, 'Aufgabe, Fällig in n Tagen, Sprache', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370013, 2, 370013, 'Aufgabe, Fï¿½llig in n Tagen, Sprache', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370513, 1, 370013, 'Task, Outstanding in n days, Language', sysdate, sysdate, 2, 2, null, null);
 
 --Report 'Report Sales Channel Quality'
@@ -1817,14 +1817,14 @@ on lft.textId = aav.freetext
 join #SCHEMA#.node_article_rel rel 
 on rel.article = art.id 
 where aav.attribute = 2 and #LIST_PARAM#rel.node in (?1)#LIST_PARAM# and rel.status = 0 and rel.dimension is null and lft.locale = ?2 and art.articletype in (1, 10, 11)', 370015, sysdate, sysdate, 2, 2, 1, 'SaleCategory, CurrentLocale', 370016, 'String, String, State, State, State, State, Date', 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370014, 2, 370014, 'Bericht Vertriebskanalqualität', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370014, 2, 370014, 'Bericht Vertriebskanalqualitï¿½t', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370514, 1, 370014, 'Report sales channel quality', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370015, 2, 370015, 'Produktnummer, Produktname, Status1, Status2, Status3, Status4, Anlagedatum', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370515, 1, 370015, 'Product number, Product name, State1, State2, State3, State4, Creation date', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370016, 2, 370016, 'Vertriebskategorie, Sprache', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370516, 1, 370016, 'Sales category, Language', sysdate, sysdate, 2, 2, null, null);
 
---Report 'iPIM Portal - Produkte nach Anzahl grüner Ampeln'
+--Report 'iPIM Portal - Produkte nach Anzahl grï¿½ner Ampeln'
 INSERT INTO REPORT (ID, IDENTIFIER, DESCRIPTION, QUERY, COLUMNDESCRIPTIONS, COMMENTS, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ONDEMAND, PARAMETERS, PARAMETERNAMES, CUSTOMRENDERER, NATIVESQL, ISMASTERDATA) VALUES (15, 'PortalCountByStatus', 370017, 'SELECT
   -1 as id,
   sum(case when no_status_green = 4 then 1 else 0 end) as green4,
@@ -1840,8 +1840,8 @@ FROM (
     case when status4 = 2 then 1 else 0 end as no_status_green
   FROM #SCHEMA#.article
   WHERE articletype = 1 and deleted = 0) tmp', 370018, 370019, sysdate, sysdate, 2, 2, 1, null, null, 'Number,Number,Number,Number,Number', 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370017, 2, 370017, 'iPIM Portal - Produkte nach Anzahl grüner Ampeln', sysdate, sysdate, 2, 2, null, null);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370018, 2, 370018, '4 x Grün,3 x Grün,2 x Grün,1 x Grün,0 x Grün', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370017, 2, 370017, 'iPIM Portal - Produkte nach Anzahl grï¿½ner Ampeln', sysdate, sysdate, 2, 2, null, null);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370018, 2, 370018, '4 x Grï¿½n,3 x Grï¿½n,2 x Grï¿½n,1 x Grï¿½n,0 x Grï¿½n', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370019, 2, 370019, 'Produkte, gruppiert nach redaktionellem Status', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370517, 1, 370017, 'iPIM Portal - Products grouped by number of green traffic lights', sysdate, sysdate, 2, 2, null, null);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER, ASSET, DESCRIPTION) VALUES (370518, 1, 370018, '4 x green,3 x green,2 x green,1 x green,0 x green', sysdate, sysdate, 2, 2, null, null);
@@ -1951,22 +1951,22 @@ INSERT INTO JOB (ID, IDENTIFIER, DESCRIPTION, QUARTZJOB, TRIGGERMETHOD, TRIGGERP
 INSERT INTO JOB (ID, IDENTIFIER, DESCRIPTION, QUARTZJOB, TRIGGERMETHOD, TRIGGERPARAMETER, ENABLED, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (7, 'FullExportJob', 404, 'com.novomind.ipim.core.util.scheduler.jobs.FullExportJob', 'makeImmediateTrigger', '', 0, sysdate, sysdate, 1, 1);
 INSERT INTO JOB (ID, IDENTIFIER, DESCRIPTION, QUARTZJOB, TRIGGERMETHOD, TRIGGERPARAMETER, ENABLED, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (113, 'iSHOPFullExport', 405, 'com.novomind.ipim.core.util.scheduler.jobs.IShopFullExportJob', 'makeImmediateTrigger', '', 0, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (400, 2, 400, 'ERP-Import Job - Integration der individuellen (ERP) Quelldaten', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (900, 1, 400, 'ERP-Import Job - integration of the project specific (ERP) source data', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (900, 1, 400, 'ERP-Import Job - integration of the project specific (ERP) source migration', sysdate, sysdate, 1, 1);
 
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (401, 2, 401, 'Asset-Import Job (Hotfolder) - Integration von automatischen Asset-Prozessen', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (901, 1, 401, 'Asset-Import Job (Hotfolder) - integration of automatic asset processes', sysdate, sysdate, 1, 1);
 
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (402, 2, 402, 'Standard Job für inkrementelle Export-Prozesse', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (902, 1, 402, 'Standard job to export product data incrementally', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (402, 2, 402, 'Standard Job fï¿½r inkrementelle Export-Prozesse', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (902, 1, 402, 'Standard job to export product migration incrementally', sysdate, sysdate, 1, 1);
 
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (403, 2, 403, 'Standard-Export Job zu novomind iMARKET', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (903, 1, 403, 'Job to export product data to novomind iMARKET', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (903, 1, 403, 'Job to export product migration to novomind iMARKET', sysdate, sysdate, 1, 1);
 
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (404, 2, 404, 'Standard Job für "FULL" Export-Prozesse', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (904, 1, 404, 'Standard job to export product data in "full" mode', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (404, 2, 404, 'Standard Job fï¿½r "FULL" Export-Prozesse', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (904, 1, 404, 'Standard job to export product migration in "full" mode', sysdate, sysdate, 1, 1);
 
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (405, 2, 405, 'Standard Job für "FULL" iSHOP XML Export-Prozesse', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (905, 1, 405, 'Standard job to export product data in the iSHOP XML ("full" mode)', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (405, 2, 405, 'Standard Job fï¿½r "FULL" iSHOP XML Export-Prozesse', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (905, 1, 405, 'Standard job to export product migration in the iSHOP XML ("full" mode)', sysdate, sysdate, 1, 1);
 
 --Locale lookup texts
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (300, 2, 300, 'Rot', sysdate, sysdate, 1, 1);
@@ -1995,15 +1995,15 @@ INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodif
 
 INSERT INTO ASSET_EXPORT_PROFILE (id, identifier, name, description, filetype, sizetype, zipfilename, zipdatepattern, creationdate, lastmodified, updateuser, createuser) VALUES (2, 'PICTURES_JPG_LARGE', 11004, 11006, 198, 171, 'Digital_Assets_iPIM_large', null, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11004, 1, 11004, 'Pictures in JPG, size large', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11005, 2, 11004, 'Bilder als JPG, groß', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11005, 2, 11004, 'Bilder als JPG, groï¿½', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11006, 1, 11006, 'This configuration exports pictures as large JPGs, all other digital assets in their uploaded original format.', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11007, 2, 11006, 'Diese Konfiguration exportiert Bilder als große JPGs, alle anderen Digital Assets im hinterlegten Originalformat.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11007, 2, 11006, 'Diese Konfiguration exportiert Bilder als groï¿½e JPGs, alle anderen Digital Assets im hinterlegten Originalformat.', sysdate, sysdate, 1, 1);
 
 INSERT INTO ASSET_EXPORT_PROFILE (id, identifier, name, description, filetype, sizetype, zipfilename, zipdatepattern, creationdate, lastmodified, updateuser, createuser) VALUES (3, 'PICTURES_JPG_MEDIUM', 11008, 11010, 198, 170, 'Digital_Assets_iPIM_medium', null, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11008, 1, 11008, 'Pictures in JPG, size medium', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11009, 2, 11008, 'Bilder als JPG, mittlere Größe', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11009, 2, 11008, 'Bilder als JPG, mittlere Grï¿½ï¿½e', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11010, 1, 11010, 'This configuration exports pictures as medium size JPGs, all other digital assets in their uploaded original format.', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11011, 2, 11010, 'Diese Konfiguration exportiert Bilder als mittelgroße JPGs, alle anderen Digital Assets im hinterlegten Originalformat.', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11011, 2, 11010, 'Diese Konfiguration exportiert Bilder als mittelgroï¿½e JPGs, alle anderen Digital Assets im hinterlegten Originalformat.', sysdate, sysdate, 1, 1);
 
 INSERT INTO ASSET_EXPORT_PROFILE (id, identifier, name, description, filetype, sizetype, zipfilename, zipdatepattern, creationdate, lastmodified, updateuser, createuser) VALUES (4, 'PICTURES_JPG_SMALL', 11012, 11014, 198, 172, 'Digital_Assets_iPIM_small', null, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (id, locale, textid, text, creationdate, lastmodified, updateuser, createuser) VALUES (11012, 1, 11012, 'Pictures in JPG, size small', sysdate, sysdate, 1, 1);
@@ -2081,11 +2081,11 @@ INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIF
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10503, 1, 10003, 'WCS export plugin', sysdate, sysdate, 1, 1);
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (5, 'Translation', 10004, 0, 0, 'job.translation', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10004, 2, 10004, 'Übersetzungsmanagement-Plugin', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10004, 2, 10004, 'ï¿½bersetzungsmanagement-Plugin', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10504, 1, 10004, 'Translation management plugin', sysdate, sysdate, 1, 1);
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (7, 'DirtyWordsSearch', 10006, 0, 0, 'dirtywords.search', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10006, 2, 10006, 'Verbotene-Wörter-Suche-Plugin', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10006, 2, 10006, 'Verbotene-Wï¿½rter-Suche-Plugin', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10506, 1, 10006, 'Dirty words search plugin', sysdate, sysdate, 1, 1);
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (8, 'OxidExport', 10007, 0, 0, 'dataexport.oxid', sysdate, sysdate, 1, 1);
@@ -2098,7 +2098,7 @@ INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIF
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10, 'SupplierImportJob', 10009, 0, 0, null, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10009, 2, 10009, 'Lieferantendaten-Import-Job-Plugin', sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10509, 1, 10009, 'Supplier data import job plugin', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10509, 1, 10009, 'Supplier migration import job plugin', sysdate, sysdate, 1, 1);
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (11, 'AutoAttachArticlesChangeCategoryMappingJob', 10010, 0, 0, null, sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10010, 2, 10010, 'Automatische-Kategoriezuweisungen-Job-Plugin', sysdate, sysdate, 1, 1);
@@ -2125,7 +2125,7 @@ INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIF
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10515, 1, 10015, 'iAGENT reviews plugin', sysdate, sysdate, 1, 1);
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, HASCONFIGAPP, CONFIGAPP, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (17, 'Google Translate', 10016, 0, 0, 'google.translate', 0, null, sysdate, sysdate, 1, 1);
-INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10016, 2, 10016, 'Google-Übersetzungs-Plugin', sysdate, sysdate, 1, 1);
+INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10016, 2, 10016, 'Google-ï¿½bersetzungs-Plugin', sysdate, sysdate, 1, 1);
 INSERT INTO locale_lookuptext (ID, LOCALE, TEXTID, TEXT, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (10516, 1, 10016, 'Google translate plugin', sysdate, sysdate, 1, 1);
 
 INSERT INTO PLUGIN (ID, IDENTIFIER, DESCRIPTION, ENABLED, CONFIGURED, PREFIX, HASCONFIGAPP, CONFIGAPP, CREATIONDATE, LASTMODIFIED, UPDATEUSER, CREATEUSER) VALUES (18, 'StandardXMLExport', 10017, 0, 0, 'dataexport.standardxml', 0, null, sysdate, sysdate, 1, 1);

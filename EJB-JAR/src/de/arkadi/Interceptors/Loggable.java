@@ -1,4 +1,4 @@
-package de.arkadi.Interceptors.migration;
+package de.arkadi.Interceptors;
 
 import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.Retention;

@@ -84,7 +84,7 @@ CREATE TABLE NODE_ATTRIBUTE_REL_AV (
 
 -- PIMCORE-2965
 ALTER TABLE ATTRIBUTE ADD CONSTRAINT FK_ATTR_DEF_UOM FOREIGN KEY(DEFAULTUOM) REFERENCES UOM(ID);
--- If this fails, check if you have invalid data and manually delete it
+-- If this fails, check if you have invalid migration and manually delete it
 -- select * from attribute where defaultuom is not null and defaultuom not in (select id from uom);
 
 -- PIMCORE-2959
@@ -109,7 +109,7 @@ FROM (
   WHERE articletype in (1, 10) AND deleted = 0) tmp group by client'
 WHERE IDENTIFIER = 'PortalCountByStatus';
 
-UPDATE locale_lookuptext SET TEXT = '4 x Grün,3 x Grün,2 x Grün,1 x Grün,0 x Grün,Mandant' WHERE ID = 370018;
+UPDATE locale_lookuptext SET TEXT = '4 x Grï¿½n,3 x Grï¿½n,2 x Grï¿½n,1 x Grï¿½n,0 x Grï¿½n,Mandant' WHERE ID = 370018;
 UPDATE locale_lookuptext SET TEXT = '4 x green,3 x green,2 x green,1 x green,0 x green,Client' WHERE ID = 370518;
 
 UPDATE REPORT SET

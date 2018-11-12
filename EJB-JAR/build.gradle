@@ -2,18 +2,15 @@ apply plugin: 'java'
 apply plugin: 'ear'
 version "1.0"
 
-/* Source and Target Java Version */
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-/* information about our source code properties */
 compileJava.options.debugOptions.debugLevel = "source,lines,vars"
 compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
 
-/* Group of the output file */
 group 'de.arcadius'
-
 defaultTasks = ['flyEar']
+buildDir = 'out'
 
 repositories {
     mavenCentral()
@@ -21,26 +18,21 @@ repositories {
 
 /*configuration that represent 2 types of dependence that i have in my project*/
 configurations {
-    /* Jars files to copy to JBOSS deploy lib */
-    deployLib {
+
+    artifacts {
         transitive = false
     }
 
-    /* Jar files that can not be copy to JBOSS deploy directory */
-    noDeployLib {
-        transitive = false
-    }
-
-    compile.extendsFrom deployLib, noDeployLib
 }
 
 
 dependencies {
-    noDeployLib('javax:javaee-web-api:8.0')
-    noDeployLib('org.slf4j:slf4j-api:1.7.25')
-    deployLib('org.flywaydb:flyway-core:5.2.0')
-    deployLib('javax.enterprise:cdi-api:2.0.SP1')
+    compile('javax:javaee-web-api:8.0')
+    compile('org.slf4j:slf4j-api:1.7.25')
+    compile('org.flywaydb:flyway-core:5.2.0')
+    compile('javax.enterprise:cdi-api:2.0.SP1')
     earlib('org.flywaydb:flyway-core:5.2.0')
+    artifacts fileTree(dir: 'out/libs', include: '*.jar')
 }
 
 
@@ -48,11 +40,9 @@ sourceSets {
     main {
         java {
             setSrcDirs(['src'])
-            setOutputDir(file('out/bin'))
         }
         resources {
             setSrcDirs(['resources'])
-            output.resourcesDir = file('out/resources')
         }
     }
 }
@@ -71,12 +61,11 @@ compileJava {
 
 
 
-task flyJar(type: Jar) {
+task flyJar(type: Jar, dependsOn: classes) {
 
     baseName = 'flyway'
     classifier = 'ejb'
     version = this.version
-    destinationDir = file("out/jars")
 
     from(sourceSets.main.output) {
         include("de/**")
@@ -96,35 +85,56 @@ task flyJar(type: Jar) {
     }
 
     manifest.attributes(
-            'Class-Path': configurations.deployLib.files.collect { 'lib/' + it.name }.join(' ')
+            'Class-Path': configurations.earlib.files.collect { 'lib/' + it.name }.join(' ')
     )
 
 }
 
-task flyEar(type: Ear) {
-    dependsOn flyJar
-    exclude {sourceSets.main.resources.asFileTree }
-    destinationDir = file("out/jars")
-    
+task flyEar(type: Ear, dependsOn: flyJar) {
+    exclude("de/**")
+    exclude("sql/**")
+    exclude("xml/**")
+    exclude("properties/**")
+    from(configurations.artifacts)
+
     deploymentDescriptor {
         applicationName = "flyway"
         displayName = "flyway"
         module("flyway-1.0-ejb.jar", "java")
     }
-    from(flyJar) {
-        include("*.jar")
-    }
-
-
 }
 
 
-task list(dependsOn: configurations.deployLib) {
+task list() {
     doLast {
-        println "classpath = ${configurations.deployLib.collect { File file -> file.name }}"
+        println "classpath = ${configurations.artifacts.collect { File file -> file.name }}"
     }
 }
 
-ext {
-    startTime = System.currentTimeMillis()
+task list2() {
+    doLast {
+        println "classpath = ${sourceSets.main.resources.collect { File file -> file.name }}"
+    }
 }
+
+task list3() {
+    doLast {
+        println "classpath = ${sourceSets.main.output.resourcesDir.listFiles().collect { File file -> file.name }}"
+    }
+}
+
+task list4() {
+    doLast {
+        println "classpath = ${buildDir.listFiles().collect { File file -> file.name }}"
+    }
+}
+
+
+task list5() {
+    doLast {
+        println "classpath = ${sourceSets.main.output.resourcesDir}"
+    }
+}
+
+
+
