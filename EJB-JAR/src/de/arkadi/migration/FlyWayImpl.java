@@ -45,7 +45,6 @@ public class FlyWayImpl implements FlyWay {
     // migrate new not applied sql scripts
     @Override
     public void migrate() {
-        Arrays.stream(flyway.info().pending()).map(MigrationInfo::getVersion).forEach(System.out::println);
         flyway.migrate();
         flyway.info().applied();
     }

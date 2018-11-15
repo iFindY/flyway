@@ -8,15 +8,13 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import java.util.logging.Logger;
 
-import static de.arkadi.producer.LoggingUtils.Type.UTIL;
-
 
 @Interceptor
 @Loggable
 public class LoggingInterceptor {
 
     @Inject
-    @LoggingUtils(UTIL)
+    @LoggingUtils
     private Logger logger;
 
     @AroundInvoke

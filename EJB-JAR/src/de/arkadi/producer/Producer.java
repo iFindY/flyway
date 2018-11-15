@@ -32,7 +32,7 @@ public class Producer {
     }
 
     @Produces
-    @LoggingUtils(UTIL)
+    @LoggingUtils
     public Logger produceLoggerUtil(InjectionPoint injectionPoint) {
         return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
     }
