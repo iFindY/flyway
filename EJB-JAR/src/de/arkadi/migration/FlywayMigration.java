@@ -2,13 +2,12 @@ package de.arkadi.migration;
 
 
 import de.arkadi.utils.Loggable;
-import de.arkadi.utils.LoggingUtils;
 import org.flywaydb.core.Flyway;
-import org.flywaydb.core.api.MigrationInfo;
 import org.slf4j.Logger;
 
 import javax.ejb.TransactionManagement;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.Properties;
@@ -21,7 +20,7 @@ public class FlywayMigration implements Migration {
 
 
     @Inject
-    @LoggingUtils
+    @Named("slf4j")
     private Logger LOGGER;
 
     private Flyway flyway;

@@ -1,11 +1,11 @@
 package de.arkadi.model;
 
-import de.arkadi.utils.LoggingUtils;
 import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -26,7 +26,7 @@ public class ApplicationProperties {
 
 
     @Inject
-    @LoggingUtils
+    @Named("slf4j")
     private Logger LOGGER;
 
     @PostConstruct
