@@ -1,8 +1,8 @@
 package de.arkadi.initialisation;
 
 
-import de.arkadi.migration.FlyWay;
-import de.arkadi.migration.FlyWayTarget;
+import de.arkadi.migration.Migration;
+import de.arkadi.utils.FlyWayTarget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +12,7 @@ import javax.ejb.Startup;
 import javax.ejb.TransactionManagement;
 import javax.inject.Inject;
 
-import static de.arkadi.migration.FlyWayTarget.Target.*;
+import static de.arkadi.utils.FlyWayTarget.Target.*;
 import static javax.ejb.TransactionManagementType.BEAN;
 
 @Startup
@@ -25,13 +25,13 @@ public class ApplicationInitializer {
 
     @Inject
     @FlyWayTarget(BASELINE)
-    FlyWay flywayBaseline;
+    Migration flywayBaseline;
     @Inject
     @FlyWayTarget(CORE)
-    FlyWay flywayCore;
+    Migration flywayCore;
     @Inject
     @FlyWayTarget(PROJECT)
-    FlyWay flywayProject;
+    Migration flywayProject;
 
     @PostConstruct
     private void init() {

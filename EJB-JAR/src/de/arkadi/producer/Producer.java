@@ -1,9 +1,10 @@
 package de.arkadi.producer;
 
-import de.arkadi.migration.FlyWay;
-import de.arkadi.migration.FlyWayImpl;
-import de.arkadi.migration.FlyWayTarget;
+import de.arkadi.migration.Migration;
+import de.arkadi.migration.FlywayMigration;
+import de.arkadi.utils.FlyWayTarget;
 import de.arkadi.model.ApplicationProperties;
+import de.arkadi.utils.LoggingUtils;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
@@ -13,8 +14,8 @@ import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.util.logging.Logger;
 
-import static de.arkadi.migration.FlyWayTarget.Target.*;
-import static de.arkadi.producer.LoggingUtils.Type.*;
+import static de.arkadi.utils.FlyWayTarget.Target.*;
+import static de.arkadi.utils.LoggingUtils.Type.*;
 
 
 
@@ -45,24 +46,24 @@ public class Producer {
 
     @Produces
     @FlyWayTarget(BASELINE)
-    public FlyWay produceFlywayBaseline() {
-        FlyWayImpl flyWay = new FlyWayImpl();
+    public Migration produceFlywayBaseline() {
+        FlywayMigration flyWay = new FlywayMigration();
         flyWay.setupFlyway(applicationProperties.getBaselineFlyway(), dataSource);
         return flyWay;
     }
 
     @Produces
     @FlyWayTarget(CORE)
-    public FlyWay produceFlywayCore() {
-        FlyWayImpl flyWay = new FlyWayImpl();
+    public Migration produceFlywayCore() {
+        FlywayMigration flyWay = new FlywayMigration();
         flyWay.setupFlyway(applicationProperties.getCoreFlyway(), dataSource);
         return flyWay;
     }
 
     @Produces
     @FlyWayTarget(PROJECT)
-    public FlyWay produceFlywayProject() {
-        FlyWayImpl flyWay = new FlyWayImpl();
+    public Migration produceFlywayProject() {
+        FlywayMigration flyWay = new FlywayMigration();
         flyWay.setupFlyway(applicationProperties.getProjectFlyway(), dataSource);
         return flyWay;
     }

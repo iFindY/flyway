@@ -1,6 +1,6 @@
 package de.arkadi.migration;
 
-public interface FlyWay {
+public interface Migration {
 
     void initialize();
 

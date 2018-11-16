@@ -1,6 +1,6 @@
 package de.arkadi.model;
 
-import de.arkadi.producer.LoggingUtils;
+import de.arkadi.utils.LoggingUtils;
 import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;

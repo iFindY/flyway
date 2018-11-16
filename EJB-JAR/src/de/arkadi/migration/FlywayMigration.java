@@ -1,8 +1,8 @@
 package de.arkadi.migration;
 
 
-import de.arkadi.Interceptors.Loggable;
-import de.arkadi.producer.LoggingUtils;
+import de.arkadi.utils.Loggable;
+import de.arkadi.utils.LoggingUtils;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 import org.slf4j.Logger;
@@ -17,7 +17,7 @@ import static javax.ejb.TransactionManagementType.BEAN;
 
 @Loggable
 @TransactionManagement(BEAN)
-public class FlyWayImpl implements FlyWay {
+public class FlywayMigration implements Migration {
 
 
     @Inject

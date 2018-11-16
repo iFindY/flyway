@@ -1,4 +1,4 @@
-package de.arkadi.migration;
+package de.arkadi.utils;
 
 
 import javax.inject.Qualifier;
@@ -13,12 +13,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Qualifier
 @Retention(RUNTIME)
 @Target({FIELD, TYPE, METHOD})
-public @interface FlyWayTarget {
-    Target value();
+public @interface LoggingUtils {
+    Type value() default Type.SLF4J;
 
-    public enum Target {
-        BASELINE,
-        CORE,
-        PROJECT
+    enum Type {
+        UTIL,
+        SLF4J
     }
 }
+

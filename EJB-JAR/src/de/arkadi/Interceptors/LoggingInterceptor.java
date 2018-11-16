@@ -1,6 +1,7 @@
 package de.arkadi.Interceptors;
 
-import de.arkadi.producer.LoggingUtils;
+import de.arkadi.utils.LoggingUtils;
+import de.arkadi.utils.Loggable;
 
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
@@ -8,7 +9,7 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import java.util.logging.Logger;
 
-import static de.arkadi.producer.LoggingUtils.Type.UTIL;
+import static de.arkadi.utils.LoggingUtils.Type.UTIL;
 
 
 @Interceptor
