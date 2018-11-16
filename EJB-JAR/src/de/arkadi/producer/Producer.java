@@ -15,8 +15,7 @@ import javax.sql.DataSource;
 import java.util.logging.Logger;
 
 import static de.arkadi.utils.FlyWayTarget.Target.*;
-import static de.arkadi.utils.LoggingUtils.Type.*;
-
+import static de.arkadi.utils.LoggingUtils.Type.UTIL;
 
 
 public class Producer {
@@ -39,7 +38,7 @@ public class Producer {
     }
 
     @Produces
-    @LoggingUtils(SLF4J)
+    @LoggingUtils
     public org.slf4j.Logger produceLoggerSLF4J(InjectionPoint injectionPoint) {
         return LoggerFactory.getLogger(injectionPoint.getBean().getBeanClass());
     }

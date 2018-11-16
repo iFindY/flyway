@@ -8,7 +8,7 @@ targetCompatibility = 1.8
 compileJava.options.debugOptions.debugLevel = "source,lines,vars"
 compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
 
-group 'de.arcadius'
+group 'de.arcadi'
 defaultTasks = ['flyEar']
 buildDir = 'out'
 
@@ -59,7 +59,14 @@ compileJava {
 
 }
 
-
+/**
+ * after run ./gradlew build 
+ * it will download this gradle version in this location
+ * ls ~/.gradle/wrapper/dists/
+ */
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.10.2'
+}
 
 task flyJar(type: Jar, dependsOn: classes) {
 
