@@ -35,7 +35,6 @@ public class ApplicationInitializer {
 
     @PostConstruct
     private void init() {
-        LOGGER.info("FlyWay Migration triggered");
 
         flywayBaseline.migrate();
         flywayCore.migrate();

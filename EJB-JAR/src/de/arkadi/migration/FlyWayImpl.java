@@ -13,7 +13,6 @@ import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.Properties;
 
-import static de.arkadi.producer.LoggingUtils.Type.SLF4J;
 import static javax.ejb.TransactionManagementType.BEAN;
 
 @Loggable
@@ -22,7 +21,7 @@ public class FlyWayImpl implements FlyWay {
 
 
     @Inject
-    @LoggingUtils(SLF4J)
+    @LoggingUtils
     private Logger LOGGER;
 
     private Flyway flyway;

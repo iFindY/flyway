@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static de.arkadi.producer.LoggingUtils.Type.SLF4J;
 
 @ApplicationScoped
 public class ApplicationProperties {
@@ -27,7 +26,7 @@ public class ApplicationProperties {
 
 
     @Inject
-    @LoggingUtils(SLF4J)
+    @LoggingUtils
     private Logger LOGGER;
 
     @PostConstruct

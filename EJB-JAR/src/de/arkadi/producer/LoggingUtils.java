@@ -14,7 +14,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Target({FIELD, TYPE, METHOD})
 public @interface LoggingUtils {
-    Type value();
+    Type value() default Type.SLF4J;
 
     enum Type {
         UTIL,
