@@ -9,7 +9,7 @@
           <factory-entry name="Arkadi-Persistence-Unit" />
           <factory-entry name="BookStore-Unit" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/resources/xml/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/resources/xml/persistence.xml" />
       </configuration>
     </facet>
   </component>

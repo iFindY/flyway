@@ -1,36 +1,33 @@
 apply plugin: 'java'
 apply plugin: 'ear'
-version "1.0"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+setGroup('de.arkadi')
+setDescription('This is a migration prototype')
+setVersion('1.1')
+setBuildDir('out')
+setDefaultTasks(['flyEar'])
+setSourceCompatibility('1.8')
+setTargetCompatibility('1.8')
 
 compileJava.options.debugOptions.debugLevel = "source,lines,vars"
 compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
 
-group 'de.arcadi'
-defaultTasks = ['flyEar']
-buildDir = 'out'
 
 repositories {
     mavenCentral()
 }
 
-/*configuration that represent 2 types of dependence that i have in my project*/
 configurations {
-
     artifacts {
         transitive = false
     }
-
 }
 
 
 dependencies {
-    compile('javax:javaee-web-api:8.0')
+    compileOnly('javax:javaee-api:7.0')
     compile('org.slf4j:slf4j-api:1.7.25')
     compile('org.flywaydb:flyway-core:5.2.0')
-    compile('javax.enterprise:cdi-api:2.0.SP1')
     earlib('org.flywaydb:flyway-core:5.2.0')
     artifacts fileTree(dir: 'out/libs', include: '*.jar')
 }
@@ -39,11 +36,16 @@ dependencies {
 sourceSets {
     main {
         java {
-            setSrcDirs(['src'])
+            srcDirs = ['src/java']
         }
+    }
+    assets {
         resources {
-            setSrcDirs(['resources'])
+            srcDirs = ['src/resources']
         }
+    }
+    artifacts {
+        libsDirName = 'libs'
     }
 }
 
@@ -59,89 +61,53 @@ compileJava {
 
 }
 
-/**
- * after run ./gradlew build 
- * it will download this gradle version in this location
- * ls ~/.gradle/wrapper/dists/
- */
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.10.2'
-}
 
 task flyJar(type: Jar, dependsOn: classes) {
 
-    baseName = 'flyway'
-    classifier = 'ejb'
-    version = this.version
+    setBaseName('flyway')
+    setClassifier('ejb')
 
-    from(sourceSets.main.output) {
-        include("de/**")
-    }
+    from(sourceSets.main.output)
 
-    into('META-INF') {
-        from(sourceSets.main.output) {
-            include("sql/**")
+    metaInf {
+        from(sourceSets.assets.resources) {
             rename '(.*)_(.*).sql', '$2__$1.sql'
         }
-        from(sourceSets.main.output) {
-            include("properties/*.properties")
-        }
-        from(sourceSets.main.resources.files) {
-            include("*.xml")
-        }
     }
 
-    manifest.attributes(
-            'Class-Path': configurations.earlib.files.collect { 'lib/' + it.name }.join(' ')
-    )
+    manifest {
+        attributes('Tool-Version': this.version)
+        attributes('Description': this.description)
+        attributes('Class-Path': configurations.earlib.files.collect { 'lib/' + it.name }.join(' '))
+    }
 
 }
 
-task flyEar(type: Ear, dependsOn: flyJar) {
-    exclude("de/**")
-    exclude("sql/**")
-    exclude("xml/**")
-    exclude("properties/**")
+task flyEar(type: Ear) {
+    //exclude("de/**")
+
     from(configurations.artifacts)
 
     deploymentDescriptor {
         applicationName = "flyway"
         displayName = "flyway"
-        module("flyway-1.0-ejb.jar", "java")
+        module("flyway-1.1-ejb.jar", "java")
     }
 }
 
+task flyClean(type: Delete) {
+    delete(sourceSets.main.output.find { 'classes' })
 
-task list() {
-    doLast {
-        println "classpath = ${configurations.artifacts.collect { File file -> file.name }}"
-    }
 }
 
-task list2() {
-    doLast {
-        println "classpath = ${sourceSets.main.resources.collect { File file -> file.name }}"
-    }
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.10.2'
 }
 
-task list3() {
-    doLast {
-        println "classpath = ${sourceSets.main.output.resourcesDir.listFiles().collect { File file -> file.name }}"
-    }
-}
+flyEar.dependsOn(flyJar)
+flyEar.dependsOn(flyClean)
+flyClean.shouldRunAfter(flyJar)
 
-task list4() {
-    doLast {
-        println "classpath = ${buildDir.listFiles().collect { File file -> file.name }}"
-    }
-}
-
-
-task list5() {
-    doLast {
-        println "classpath = ${sourceSets.main.output.resourcesDir}"
-    }
-}
 
 
 
