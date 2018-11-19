@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans
+2.0//EN' 'http://java.sun.com/dtd/ejb-jar_2_0.dtd'>
+<ejb-jar>
+    <assembly-descriptor>
+        <!-- Default interceptor that will apply to all methods for all beans in deployment -->
+        <interceptor-binding>
+            <ejb-name>*</ejb-name>
+            <interceptor-class>de.arkadi.interceptors.LoggingInterceptor</interceptor-class>
+        </interceptor-binding>
+    </assembly-descriptor>
+</ejb-jar>

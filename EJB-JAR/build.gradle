@@ -9,6 +9,8 @@ setDefaultTasks(['flyEar'])
 setSourceCompatibility('1.8')
 setTargetCompatibility('1.8')
 
+def libsDir = file('out/libs')
+
 compileJava.options.debugOptions.debugLevel = "source,lines,vars"
 compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
 
@@ -18,9 +20,7 @@ repositories {
 }
 
 configurations {
-    artifacts {
-        transitive = false
-    }
+    artifacts {}
 }
 
 
@@ -29,7 +29,7 @@ dependencies {
     compile('org.slf4j:slf4j-api:1.7.25')
     compile('org.flywaydb:flyway-core:5.2.0')
     earlib('org.flywaydb:flyway-core:5.2.0')
-    artifacts fileTree(dir: 'out/libs', include: '*.jar')
+    artifacts fileTree(dir: libsDir, include: '*.jar')
 }
 
 
@@ -43,9 +43,6 @@ sourceSets {
         resources {
             srcDirs = ['src/resources']
         }
-    }
-    artifacts {
-        libsDirName = 'libs'
     }
 }
 
@@ -63,7 +60,7 @@ compileJava {
 
 
 task flyJar(type: Jar, dependsOn: classes) {
-
+    setDestinationDir(libsDir)
     setBaseName('flyway')
     setClassifier('ejb')
 
@@ -71,7 +68,11 @@ task flyJar(type: Jar, dependsOn: classes) {
 
     metaInf {
         from(sourceSets.assets.resources) {
+            exclude('xml')
             rename '(.*)_(.*).sql', '$2__$1.sql'
+        }
+        from(sourceSets.assets.resources.files) {
+            include("*.xml")
         }
     }
 
@@ -84,8 +85,7 @@ task flyJar(type: Jar, dependsOn: classes) {
 }
 
 task flyEar(type: Ear) {
-    //exclude("de/**")
-
+    setDestinationDir(libsDir)
     from(configurations.artifacts)
 
     deploymentDescriptor {

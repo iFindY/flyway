@@ -1,26 +1,26 @@
 package de.arkadi.migration;
 
 
-import de.arkadi.utils.Loggable;
+import de.arkadi.interceptors.LoggingInterceptor;
+import de.arkadi.utils.LoggingUtils;
 import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
 
-import javax.ejb.TransactionManagement;
 import javax.inject.Inject;
-import javax.inject.Named;
+import javax.interceptor.Interceptors;
 import javax.sql.DataSource;
-import java.util.Arrays;
+import javax.transaction.Transactional;
 import java.util.Properties;
 
-import static javax.ejb.TransactionManagementType.BEAN;
+import static javax.transaction.Transactional.TxType.SUPPORTS;
 
-@Loggable
-@TransactionManagement(BEAN)
+@Transactional(SUPPORTS)
+@Interceptors({LoggingInterceptor.class})
 public class FlywayMigration implements Migration {
 
 
     @Inject
-    @Named("slf4j")
+    @LoggingUtils
     private Logger LOGGER;
 
     private Flyway flyway;
@@ -60,7 +60,7 @@ public class FlywayMigration implements Migration {
     }
 
     // populate flyway with settings
-    public void setupFlyway(Properties properties,DataSource dataSource) {
+    public void setupFlyway(Properties properties, DataSource dataSource) {
         this.flyway = Flyway.configure()
                 .dataSource(dataSource)
                 .table(properties.getProperty("flyway.table"))
