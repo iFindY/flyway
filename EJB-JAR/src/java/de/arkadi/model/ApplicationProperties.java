@@ -8,6 +8,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 
@@ -24,6 +26,9 @@ public class ApplicationProperties {
     private Properties coreFlyway;
     private Properties projectFlyway;
 
+
+    @Inject
+    private List<Map<String, String>> DatabaseVersion;
 
     @Inject
     @LoggingUtils
@@ -51,6 +56,10 @@ public class ApplicationProperties {
 
     public Properties getProjectFlyway() {
         return projectFlyway;
+    }
+
+    public List getDatabaseVersion() {
+        return DatabaseVersion;
     }
 
     private Properties load(String property) {

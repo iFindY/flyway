@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 import static de.arkadi.utils.LoggingUtils.Type.UTIL;
@@ -21,15 +22,16 @@ public class LoggingInterceptor {
 
     @AroundInvoke
     public Object intercept(InvocationContext ic) throws Exception {
-        logger.entering("producer invoking : " + ic.getTarget().getClass().getName(), ic.getMethod().getName());
-        try {
-            logger.info("with context data : " + ic.getContextData().keySet().toString());
+        String className = ic.getTarget().getClass().getName();
+        logger.info("Invoking : " + className.substring(0, className.indexOf("$")) + ":: " + ic.getMethod().getName());
+        logger.info("Parameters : " + Arrays.toString(ic.getParameters()));
 
-            return ic.proceed();
-        } finally {
-            logger.exiting("invocation complected : " + ic.getTarget().getClass().getName(), ic.getMethod().getName());
-
+        Object result = ic.proceed();
+        if (result == null) {
+            result = "Void";
         }
+        logger.info("Return : " + result.toString());
+        return result;
     }
 }
 

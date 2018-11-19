@@ -1,27 +1,37 @@
 package de.arkadi.migration;
 
 
+import de.arkadi.utils.Loggable;
 import de.arkadi.utils.LoggingUtils;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.MigrationInfo;
 import org.slf4j.Logger;
 
+
 import javax.inject.Inject;
+
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static javax.transaction.Transactional.TxType.SUPPORTS;
+import static javax.transaction.Transactional.TxType.*;
 
+@Loggable
 @Transactional(SUPPORTS)
 public class FlywayMigration implements Migration {
 
+    @Inject
+    List<Map<String, String>> dbVersion;
 
     @Inject
     @LoggingUtils
     private Logger LOGGER;
 
     private Flyway flyway;
-
 
     // delete all migration and set baseline
     @Override
@@ -39,9 +49,8 @@ public class FlywayMigration implements Migration {
 
     // migrate new not applied sql scripts
     @Override
-    public void migrate() {
-        flyway.migrate();
-        flyway.info().applied();
+    public int migrate() {
+        return flyway.migrate();
     }
 
     // set current db state as base for future migrations
@@ -52,8 +61,8 @@ public class FlywayMigration implements Migration {
 
     // get schema version Table
     @Override
-    public void info() {
-        flyway.info();
+    public List info() {
+        return Stream.of(flyway.info().all()).map(MigrationInfo::getDescription).collect(Collectors.toList());
     }
 
     // populate flyway with settings
