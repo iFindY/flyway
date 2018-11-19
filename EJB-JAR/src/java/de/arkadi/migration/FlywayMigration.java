@@ -1,13 +1,11 @@
 package de.arkadi.migration;
 
 
-import de.arkadi.interceptors.LoggingInterceptor;
 import de.arkadi.utils.LoggingUtils;
 import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;
-import javax.interceptor.Interceptors;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import java.util.Properties;
@@ -15,7 +13,6 @@ import java.util.Properties;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @Transactional(SUPPORTS)
-@Interceptors({LoggingInterceptor.class})
 public class FlywayMigration implements Migration {
 
 

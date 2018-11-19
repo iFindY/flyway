@@ -4,11 +4,15 @@ import de.arkadi.migration.Migration;
 import de.arkadi.migration.FlywayMigration;
 import de.arkadi.utils.FlyWayTarget;
 import de.arkadi.model.ApplicationProperties;
-import de.arkadi.utils.Loggable;
+import de.arkadi.utils.FlyWayTarget.Target;
+import de.arkadi.utils.Flyway;
 import de.arkadi.utils.LoggingUtils;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Any;
+import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
@@ -16,7 +20,6 @@ import javax.sql.DataSource;
 
 import java.util.logging.Logger;
 
-import static de.arkadi.utils.FlyWayTarget.Target.*;
 import static de.arkadi.utils.LoggingUtils.Type.*;
 
 public class Producer {
@@ -28,6 +31,7 @@ public class Producer {
     ApplicationProperties applicationProperties;
 
     @Produces
+    @ApplicationScoped
     public DataSource dataSource() {
         return dataSource;
     }
@@ -45,27 +49,28 @@ public class Producer {
         return LoggerFactory.getLogger(clazz);
     }
 
-    @Produces
-    @FlyWayTarget(BASELINE)
-    public Migration produceFlywayBaseline() {
-        FlywayMigration flyWay = new FlywayMigration();
-        flyWay.setupFlyway(applicationProperties.getBaselineFlyway(), dataSource);
-        return flyWay;
-    }
 
     @Produces
-    @FlyWayTarget(CORE)
-    public Migration produceFlywayCore() {
+    @Flyway
+    public Migration produceFlyway(@Any Instance<Migration> instance, InjectionPoint injectionPoint) {
         FlywayMigration flyWay = new FlywayMigration();
-        flyWay.setupFlyway(applicationProperties.getCoreFlyway(), dataSource);
-        return flyWay;
-    }
+        Target TYPE = injectionPoint
+                .getAnnotated()
+                .getAnnotation(FlyWayTarget.class)
+                .value();
 
-    @Produces
-    @FlyWayTarget(PROJECT)
-    public Migration produceFlywayProject() {
-        FlywayMigration flyWay = new FlywayMigration();
-        flyWay.setupFlyway(applicationProperties.getProjectFlyway(), dataSource);
+        switch (TYPE) {
+            case BASELINE:
+                flyWay.setupFlyway(applicationProperties.getBaselineFlyway(), dataSource);
+                break;
+            case CORE:
+                flyWay.setupFlyway(applicationProperties.getCoreFlyway(), dataSource);
+                break;
+            case PROJECT:
+                flyWay.setupFlyway(applicationProperties.getProjectFlyway(), dataSource);
+                break;
+        }
+
         return flyWay;
     }
 
