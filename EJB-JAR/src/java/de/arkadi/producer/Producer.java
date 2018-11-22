@@ -4,22 +4,19 @@ import de.arkadi.migration.Migration;
 import de.arkadi.migration.FlywayMigration;
 import de.arkadi.utils.*;
 import de.arkadi.model.ApplicationProperties;
-import de.arkadi.utils.FlyWayTarget.Target;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
 
-import static de.arkadi.utils.LoggingUtils.Type.*;
+import static de.arkadi.utils.FlyWayTarget.Target.*;
+
 
 public class Producer {
 
@@ -29,9 +26,6 @@ public class Producer {
     @Inject
     ApplicationProperties applicationProperties;
 
-    @Produces
-    @ApplicationScoped
-    List<Map<String, String>> dbVersion = new ArrayList<>();
 
     @Produces
     @ApplicationScoped
@@ -39,14 +33,8 @@ public class Producer {
         return dataSource;
     }
 
-    @Produces
-    @LoggingUtils(UTIL)
-    public java.util.logging.Logger produceLoggerUtil(InjectionPoint injectionPoint) {
-        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
-    }
 
     @Produces
-    @LoggingUtils(SLF4J)
     public org.slf4j.Logger produceLoggerSLF4J(InjectionPoint injectionPoint) {
         Class clazz = injectionPoint.getMember().getDeclaringClass();
         return LoggerFactory.getLogger(clazz);
@@ -54,26 +42,27 @@ public class Producer {
 
 
     @Produces
-    @Flyway
-    public Migration produceFlyway(FlywayMigration flywayMigration, InjectionPoint injectionPoint) {
+    @RequestScoped
+    @FlyWayTarget(BASELINE)
+    public Migration produceFlywayBaseline(FlywayMigration flyWay) {
+        flyWay.setupFlyway(applicationProperties.getBaselineFlyway(), dataSource);
+        return flyWay;
+    }
 
-        Target TYPE = injectionPoint
-                .getAnnotated()
-                .getAnnotation(FlyWayTarget.class)
-                .value();
+    @Produces
+    @RequestScoped
+    @FlyWayTarget(CORE)
+    public Migration produceFlywayCore(FlywayMigration flyWay) {
+        flyWay.setupFlyway(applicationProperties.getCoreFlyway(), dataSource);
+        return flyWay;
+    }
 
-        switch (TYPE) {
-            case BASELINE:
-                flywayMigration.setupFlyway(applicationProperties.getBaselineFlyway(), dataSource);
-                break;
-            case CORE:
-                flywayMigration.setupFlyway(applicationProperties.getCoreFlyway(), dataSource);
-                break;
-            case PROJECT:
-                flywayMigration.setupFlyway(applicationProperties.getProjectFlyway(), dataSource);
-                break;
-        }
-        return flywayMigration;
+    @Produces
+    @RequestScoped
+    @FlyWayTarget(PROJECT)
+    public Migration produceFlywayProject(FlywayMigration flyWay) {
+        flyWay.setupFlyway(applicationProperties.getProjectFlyway(), dataSource);
+        return flyWay;
     }
 
 }

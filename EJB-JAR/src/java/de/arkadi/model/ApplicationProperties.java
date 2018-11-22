@@ -1,6 +1,5 @@
 package de.arkadi.model;
 
-import de.arkadi.utils.LoggingUtils;
 import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;
@@ -8,8 +7,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 
@@ -28,10 +25,6 @@ public class ApplicationProperties {
 
 
     @Inject
-    private List<Map<String, String>> DatabaseVersion;
-
-    @Inject
-    @LoggingUtils
     private Logger LOGGER;
 
     @PostConstruct
@@ -58,9 +51,6 @@ public class ApplicationProperties {
         return projectFlyway;
     }
 
-    public List getDatabaseVersion() {
-        return DatabaseVersion;
-    }
 
     private Properties load(String property) {
         Properties temp = new Properties();

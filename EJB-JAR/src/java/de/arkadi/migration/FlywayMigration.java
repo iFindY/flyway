@@ -2,18 +2,15 @@ package de.arkadi.migration;
 
 
 import de.arkadi.utils.Loggable;
-import de.arkadi.utils.LoggingUtils;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 import org.slf4j.Logger;
 
 
-import javax.inject.Inject;
-
+import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,13 +20,6 @@ import static javax.transaction.Transactional.TxType.*;
 @Loggable
 @Transactional(SUPPORTS)
 public class FlywayMigration implements Migration {
-
-    @Inject
-    List<Map<String, String>> dbVersion;
-
-    @Inject
-    @LoggingUtils
-    private Logger LOGGER;
 
     private Flyway flyway;
 
@@ -79,5 +69,10 @@ public class FlywayMigration implements Migration {
                 .ignoreMissingMigrations(Boolean.valueOf(properties.getProperty("flyway.ignoreMissingMigrations")))
                 .cleanOnValidationError(Boolean.valueOf(properties.getProperty("flyway.cleanOnValidationError")))
                 .load();
+    }
+
+    @PreDestroy
+    public void des() {
+        System.out.println("destroyed bean !!!>>>>><<<<<<");
     }
 }
