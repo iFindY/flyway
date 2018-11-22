@@ -9,7 +9,7 @@ public interface Migration {
 
     void clean();
 
-    int migrate();
+    String migrate();
 
     void baseline();
 

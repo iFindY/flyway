@@ -14,11 +14,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Target({FIELD, TYPE, METHOD})
 public @interface FlyWayTarget {
-    Target value();
+    Target value() default Target.NON;
 
     public enum Target {
         BASELINE,
         CORE,
-        PROJECT
+        PROJECT,
+        NON
     }
 }

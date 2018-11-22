@@ -4,7 +4,6 @@ package de.arkadi.migration;
 import de.arkadi.utils.Loggable;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
-import org.slf4j.Logger;
 
 
 import javax.annotation.PreDestroy;
@@ -39,8 +38,8 @@ public class FlywayMigration implements Migration {
 
     // migrate new not applied sql scripts
     @Override
-    public int migrate() {
-        return flyway.migrate();
+    public String migrate() {
+        return String.valueOf(flyway.migrate());
     }
 
     // set current db state as base for future migrations
@@ -72,7 +71,7 @@ public class FlywayMigration implements Migration {
     }
 
     @PreDestroy
-    public void des() {
-        System.out.println("destroyed bean !!!>>>>><<<<<<");
+    public void destroy() {
+        System.out.println("Migration bean ends life cycle");
     }
 }
