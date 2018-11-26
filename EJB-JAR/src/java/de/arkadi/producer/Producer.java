@@ -4,6 +4,7 @@ import de.arkadi.migration.Migration;
 import de.arkadi.migration.FlywayMigration;
 import de.arkadi.utils.*;
 import de.arkadi.model.ApplicationProperties;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
@@ -35,7 +36,7 @@ public class Producer {
 
 
     @Produces
-    public org.slf4j.Logger produceLoggerSLF4J(InjectionPoint injectionPoint) {
+    public Logger produceLoggerSLF4J(InjectionPoint injectionPoint) {
         Class clazz = injectionPoint.getMember().getDeclaringClass();
         return LoggerFactory.getLogger(clazz);
     }

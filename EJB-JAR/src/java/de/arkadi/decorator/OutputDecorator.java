@@ -14,8 +14,8 @@ public class OutputDecorator implements Migration {
 
 
     @Inject
-    @Delegate
     @Any
+    @Delegate
     Migration migration;
 
 
@@ -32,8 +32,6 @@ public class OutputDecorator implements Migration {
     @Override
     public String migrate() {
         String migrationCount = migration.migrate();
-        //TODO remove
-        System.out.println("has been decorated:: returned " + migrationCount);
         return "Migrations Applied " + migrationCount;
     }
 

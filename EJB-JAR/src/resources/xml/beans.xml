@@ -7,4 +7,7 @@
     <interceptors>
         <class>de.arkadi.interceptors.LoggingInterceptor</class>
     </interceptors>
+    <decorators>
+        <class>de.arkadi.decorator.OutputDecorator</class>
+    </decorators>
 </beans>
