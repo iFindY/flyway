@@ -1,15 +1,20 @@
 apply plugin: 'java'
 apply plugin: 'ear'
 
+ext{
+    libsDir = file('out/libs')
+    version = '1.1'
+}
+
+
 setGroup('de.arkadi')
 setDescription('This is a migration prototype')
-setVersion('1.1')
+setVersion(version)
 setBuildDir('out')
 setDefaultTasks(['flyEar'])
 setSourceCompatibility('1.8')
 setTargetCompatibility('1.8')
 
-def libsDir = file('out/libs')
 
 compileJava.options.debugOptions.debugLevel = "source,lines,vars"
 compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
@@ -31,7 +36,6 @@ dependencies {
     earlib('org.flywaydb:flyway-core:5.2.0')
     artifacts fileTree(dir: libsDir, include: '*.jar')
 }
-
 
 sourceSets {
     main {
@@ -58,8 +62,9 @@ compileJava {
 
 }
 
-
+// custom jar task 
 task flyJar(type: Jar, dependsOn: classes) {
+    setDescription("create the flyway migration lib")
     setDestinationDir(libsDir)
     setBaseName('flyway')
     setClassifier('ejb')
@@ -85,6 +90,7 @@ task flyJar(type: Jar, dependsOn: classes) {
 }
 
 task flyEar(type: Ear) {
+    setDescription("create deployable archive containing the flyJar")
     setDestinationDir(libsDir)
     from(configurations.artifacts)
 

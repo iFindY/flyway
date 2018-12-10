@@ -5,8 +5,6 @@ import de.arkadi.utils.Loggable;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 
-
-import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -23,33 +21,28 @@ public class FlywayMigration implements Migration {
     private Flyway flyway;
 
     // delete all migration and set baseline
-    @Override
     public void initialize() {
         flyway.clean();
         flyway.baseline();
     }
 
     // wipe database with all migration
-    @Override
     public void clean() {
         flyway.clean();
 
     }
 
     // migrate new not applied sql scripts
-    @Override
     public String migrate() {
         return String.valueOf(flyway.migrate());
     }
 
     // set current db state as base for future migrations
-    @Override
     public void baseline() {
         flyway.baseline();
     }
 
     // get schema version Table
-    @Override
     public List info() {
         return Stream.of(flyway.info().all()).map(MigrationInfo::getDescription).collect(Collectors.toList());
     }
@@ -70,8 +63,4 @@ public class FlywayMigration implements Migration {
                 .load();
     }
 
-    @PreDestroy
-    public void destroy() {
-        System.out.println("Migration bean ends life cycle");
-    }
 }

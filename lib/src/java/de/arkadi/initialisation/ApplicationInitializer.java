@@ -37,7 +37,7 @@ public class ApplicationInitializer {
     private void init() {
         flywayBaseline.migrate();
         flywayCore.migrate();
-        // flywayProject.migrate();
+        flywayProject.migrate();
     }
 
 }

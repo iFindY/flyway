@@ -57,7 +57,9 @@ public class ApplicationProperties {
         try (InputStream input = Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("META-INF/properties/" + property)) {
+
             temp.load(input);
+
         } catch (IOException e) {
             LOGGER.error("can not find file => \n", e.getCause());
         }

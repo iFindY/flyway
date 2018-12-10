@@ -4,7 +4,6 @@ import de.arkadi.migration.Migration;
 
 import javax.decorator.Decorator;
 import javax.decorator.Delegate;
-import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -14,7 +13,6 @@ public class OutputDecorator implements Migration {
 
 
     @Inject
-    @Any
     @Delegate
     Migration migration;
 
@@ -32,7 +30,7 @@ public class OutputDecorator implements Migration {
     @Override
     public String migrate() {
         String migrationCount = migration.migrate();
-        return "Migrations Applied " + migrationCount;
+        return "Migrations Applied : " + migrationCount;
     }
 
     @Override
