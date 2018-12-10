@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="arkadi.plugin.main" target="1.8" />
+      <module name="arkadi.plugin.test" target="1.8" />
+      <module name="de.arkadi.flyway.assets" target="1.8" />
+      <module name="de.arkadi.flyway.main" target="1.8" />
+      <module name="de.arkadi.flyway.test" target="1.8" />
+      <module name="de.arkadi.plugin.assets" target="1.8" />
+      <module name="de.arkadi.plugin.main" target="1.8" />
+      <module name="de.arkadi.plugin.test" target="1.8" />
+      <module name="flyway.plugin.main" target="1.8" />
+      <module name="flyway.plugin.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
