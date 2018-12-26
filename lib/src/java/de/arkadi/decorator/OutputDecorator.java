@@ -17,18 +17,16 @@ public class OutputDecorator implements Migration {
     Migration migration;
 
 
-    @Override
     public void initialize() {
 
     }
 
-    @Override
     public void clean() {
 
     }
 
-    @Override
     public String migrate() {
+        System.out.println("na".repeat(16) + "Batmen");
         String migrationCount = migration.migrate();
         return "Migrations Applied : " + migrationCount;
     }

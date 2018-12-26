@@ -29,7 +29,6 @@ public class FlywayMigration implements Migration {
     // wipe database with all migration
     public void clean() {
         flyway.clean();
-
     }
 
     // migrate new not applied sql scripts

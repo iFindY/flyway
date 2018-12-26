@@ -26,7 +26,7 @@ gradlePlugin {
     plugins {
         simplePlugin {
             id = 'de.arkadi.plugin'
-            implementationClass = 'de.arkadi.MyPlugin'
+            implementationClass = 'de.arkadi.MyJarPlugin'
         }
     }
 }
