@@ -6,10 +6,11 @@ import org.slf4j.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.Scanner;
+import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
 
@@ -74,19 +75,38 @@ public class ApplicationProperties {
 
     private String getVersion() {
         String path = SQL_RESSOURCES;
+        String version = null;
 
+        // get path
         try (InputStream dir = classLoader.getResourceAsStream(SQL_RESSOURCES)) {
             JarInputStream content = (JarInputStream) dir;
 
-            String entry;
-            while (Objects.nonNull(entry = content.getNextJarEntry().getName())) {
-                path = entry.contains("iPIM INSERT.sql") ? path.concat(entry) : path;
-
+            JarEntry entry;
+            while ((entry = content.getNextJarEntry()) != null) {
+                path = entry.getName().contains("iPIM INSERT.sql") ? path.concat(entry.getName()) : path;
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return path;
+
+        // get version
+        try (InputStream script = classLoader.getResourceAsStream(path)) {
+            Scanner scanner = new Scanner(script);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.contains("server.id")) {
+                    version = line.substring(
+                            line.indexOf("'v") + 2,
+                            line.lastIndexOf("'"));
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return version;
     }
 
 
