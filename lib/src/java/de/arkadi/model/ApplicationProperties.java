@@ -1,24 +1,23 @@
 package de.arkadi.model;
 
+import de.arkadi.utils.FWClassLoader;
 import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.servlet.ServletOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Collections;
-import java.util.Enumeration;
+import java.util.Objects;
 import java.util.Properties;
+import java.util.jar.JarInputStream;
 
 
 @ApplicationScoped
 public class ApplicationProperties {
 
-    private static String SQL_RESSOURCES = "META-INF/sql/";
+    private static String SQL_RESSOURCES = "META-INF/sql/baseline/";
+    private static String PROPERTIES_LOCATION = "META-INF/properties/";
     private static String APPLICATION = "application.properties";
     private static String BASELINE_FLYWAY = "baselineFlyway.properties";
     private static String CORE_FLYWAY = "coreFlyway.properties";
@@ -29,9 +28,12 @@ public class ApplicationProperties {
     private Properties coreFlyway;
     private Properties projectFlyway;
 
-
     @Inject
     private Logger LOGGER;
+
+    @Inject
+    @FWClassLoader
+    private ClassLoader classLoader;
 
     @PostConstruct
     private void loadProperties() {
@@ -39,6 +41,7 @@ public class ApplicationProperties {
         baselineFlyway = load(application.getProperty(BASELINE_FLYWAY));
         coreFlyway = load(application.getProperty(CORE_FLYWAY));
         projectFlyway = load(application.getProperty(PROJECT_FLYWAY));
+        baselineFlyway.setProperty("flyway.baselineVersion", getVersion());
     }
 
     public Properties getApplication() {
@@ -60,10 +63,7 @@ public class ApplicationProperties {
 
     private Properties load(String property) {
         Properties result = new Properties();
-        try (InputStream input = Thread.currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("META-INF/properties/" + property)) {
-
+        try (InputStream input = classLoader.getResourceAsStream(PROPERTIES_LOCATION + property)) {
             result.load(input);
 
         } catch (IOException e) {
@@ -73,25 +73,21 @@ public class ApplicationProperties {
     }
 
     private String getVersion() {
+        String path = SQL_RESSOURCES;
 
-        try {
-            Enumeration<URL> temp = Thread.currentThread().getContextClassLoader().getResources(SQL_RESSOURCES);
-            String script = Collections.list(temp).stream()
-                    .filter(x -> x.getFile().contains("INSERT.sql"))
-                    .findFirst()
-                    .get()
-                    .getFile();
+        try (InputStream dir = classLoader.getResourceAsStream(SQL_RESSOURCES)) {
+            JarInputStream content = (JarInputStream) dir;
 
-            InputStream input = Thread.currentThread()
-                    .getContextClassLoader()
-                    .getResourceAsStream(script);
+            String entry;
+            while (Objects.nonNull(entry = content.getNextJarEntry().getName())) {
+                path = entry.contains("iPIM INSERT.sql") ? path.concat(entry) : path;
 
-
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return null;
+        return path;
     }
+
 
 }

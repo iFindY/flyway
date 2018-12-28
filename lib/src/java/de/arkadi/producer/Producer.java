@@ -1,11 +1,11 @@
 package de.arkadi.producer;
 
 import de.arkadi.migration.Migration;
-import de.arkadi.migration.FlywayMigration;
 import de.arkadi.utils.*;
 import de.arkadi.model.ApplicationProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import de.arkadi.migration.FlywayMigration;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
@@ -20,8 +20,9 @@ import static de.arkadi.utils.FlyWayTarget.Target.*;
 
 
 public class Producer {
-
-    @Resource(name = "java:jboss/datasources/ArkadiDS")
+    //java:jboss/datasources/ArkadiDS
+    //name
+    @Resource(lookup = "java:/iPIMDS")
     DataSource dataSource;
 
     @Inject
@@ -32,6 +33,13 @@ public class Producer {
     @ApplicationScoped
     public DataSource dataSource() {
         return dataSource;
+    }
+
+
+    @Produces
+    @FWClassLoader
+    public ClassLoader produceClassLoader() {
+        return this.getClass().getClassLoader();
     }
 
 
@@ -65,5 +73,6 @@ public class Producer {
         flyWay.setupFlyway(applicationProperties.getProjectFlyway(), dataSource);
         return flyWay;
     }
+
 
 }
