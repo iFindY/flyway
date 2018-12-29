@@ -17,7 +17,7 @@ class MyJarPlugin implements Plugin<Project> {
         project.ext {
             libsDir = project.file('out/libs')
             version = '1.1'
-            description="my jar for flyway"
+            description = "my jar for flyway"
         }
 
 
@@ -65,7 +65,6 @@ class MyJarPlugin implements Plugin<Project> {
         }
 
 
-
         project.compileJava {
             targetCompatibility = 1.8
             sourceCompatibility = 1.8
@@ -82,6 +81,7 @@ class MyJarPlugin implements Plugin<Project> {
             setDestinationDir(project.ext.libsDir)
             setBaseName('flyway')
             setClassifier('ejb')
+            setGroup("arkadi")
 
             from(project.sourceSets.main.output)
 
@@ -106,6 +106,7 @@ class MyJarPlugin implements Plugin<Project> {
         project.task("flyEar", type: Ear) {
             setDescription("create deployable archive containing the flyJar")
             setDestinationDir(project.ext.libsDir)
+            setGroup("arkadi")
             from(project.configurations.artifacts)
 
             deploymentDescriptor {
@@ -116,17 +117,22 @@ class MyJarPlugin implements Plugin<Project> {
         }
 
         project.task("flyClean", type: Delete) {
+            setGroup("arkadi")
+            setDescription("clean classes dir")
             delete(project.sourceSets.main.output.find { 'classes' })
 
         }
 
-        project.task("wrapper", type: Wrapper) {
+        project.task("flyWrapper", type: Wrapper) {
+            setGroup("arkadi")
+            setDescription("set global gradle wrapper")
             gradleVersion = '4.10.2'
         }
 
+        project.flyJar.dependsOn(project.flyWrapper)
+        project.flyClean.shouldRunAfter(project.flyJar)
         project.flyEar.dependsOn(project.flyJar)
         project.flyEar.dependsOn(project.flyClean)
-        project.flyClean.shouldRunAfter(project.flyJar)
 
 
     }

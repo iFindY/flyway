@@ -1,7 +1,7 @@
 package de.arkadi.interceptors;
 
 
-import de.arkadi.utils.Loggable;
+import de.arkadi.qualifier.Loggable;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;

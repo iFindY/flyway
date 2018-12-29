@@ -1,8 +1,9 @@
 package de.arkadi.producer;
 
 import de.arkadi.migration.Migration;
-import de.arkadi.utils.*;
+import de.arkadi.qualifier.*;
 import de.arkadi.model.ApplicationProperties;
+import de.arkadi.utils.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import de.arkadi.migration.FlywayMigration;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
 import javax.sql.DataSource;
 
 
-import static de.arkadi.utils.FlyWayTarget.Target.*;
+import static de.arkadi.qualifier.FlyWayTarget.Target.*;
 
 
 public class Producer {

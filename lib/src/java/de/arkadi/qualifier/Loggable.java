@@ -1,4 +1,4 @@
-package de.arkadi.utils;
+package de.arkadi.qualifier;
 
 import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.Retention;

@@ -1,28 +1,23 @@
 package de.arkadi.model;
 
-import de.arkadi.utils.FWClassLoader;
-import org.slf4j.Logger;
+import de.arkadi.qualifier.FWClassLoader;
+import de.arkadi.utils.IOUtils;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.io.*;
-import java.util.Objects;
 import java.util.Properties;
-import java.util.Scanner;
-import java.util.jar.JarEntry;
-import java.util.jar.JarInputStream;
+import java.util.regex.Pattern;
 
 
 @ApplicationScoped
 public class ApplicationProperties {
 
-    private static String SQL_RESSOURCES = "META-INF/sql/baseline/";
     private static String PROPERTIES_LOCATION = "META-INF/properties/";
     private static String APPLICATION = "application.properties";
-    private static String BASELINE_FLYWAY = "baselineFlyway.properties";
-    private static String CORE_FLYWAY = "coreFlyway.properties";
-    private static String PROJECT_FLYWAY = "projectFlyway.properties";
+    private static String BASELINE_NAME = "baselineFlyway.properties";
+    private static String CORE_NAME = "coreFlyway.properties";
+    private static String PROJECT_NAME = "projectFlyway.properties";
 
     private Properties application;
     private Properties baselineFlyway;
@@ -30,23 +25,27 @@ public class ApplicationProperties {
     private Properties projectFlyway;
 
     @Inject
-    private Logger LOGGER;
-
-    @Inject
     @FWClassLoader
     private ClassLoader classLoader;
 
+    @Inject
+    private IOUtils utils;
+
     @PostConstruct
     private void loadProperties() {
-        application = load(APPLICATION);
-        baselineFlyway = load(application.getProperty(BASELINE_FLYWAY));
-        coreFlyway = load(application.getProperty(CORE_FLYWAY));
-        projectFlyway = load(application.getProperty(PROJECT_FLYWAY));
-        baselineFlyway.setProperty("flyway.baselineVersion", getVersion());
+        application = utils.load(PROPERTIES_LOCATION, APPLICATION);
+        baselineFlyway = utils.load(PROPERTIES_LOCATION, application.getProperty(BASELINE_NAME));
+        coreFlyway = utils.load(PROPERTIES_LOCATION, application.getProperty(CORE_NAME));
+        projectFlyway = utils.load(PROPERTIES_LOCATION, application.getProperty(PROJECT_NAME));
+
+        baselineFlyway.replace("flyway.baselineVersion", updateVersion());
     }
 
-    public Properties getApplication() {
-        return application;
+    private String updateVersion() {
+        String regEx = "\\d+\\.\\d+\\.\\d+";
+        String path = utils.getPath("META-INF/sql/baseline/", "iPIM INSERT.sql");
+
+        return utils.getValue(path, regEx);
     }
 
     public Properties getBaselineFlyway() {
@@ -59,54 +58,6 @@ public class ApplicationProperties {
 
     public Properties getProjectFlyway() {
         return projectFlyway;
-    }
-
-
-    private Properties load(String property) {
-        Properties result = new Properties();
-        try (InputStream input = classLoader.getResourceAsStream(PROPERTIES_LOCATION + property)) {
-            result.load(input);
-
-        } catch (IOException e) {
-            LOGGER.error("can not find file => \n", e.getCause());
-        }
-        return result;
-    }
-
-    private String getVersion() {
-        String path = SQL_RESSOURCES;
-        String version = null;
-
-        // get path
-        try (InputStream dir = classLoader.getResourceAsStream(SQL_RESSOURCES)) {
-            JarInputStream content = (JarInputStream) dir;
-
-            JarEntry entry;
-            while ((entry = content.getNextJarEntry()) != null) {
-                path = entry.getName().contains("iPIM INSERT.sql") ? path.concat(entry.getName()) : path;
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // get version
-        try (InputStream script = classLoader.getResourceAsStream(path)) {
-            Scanner scanner = new Scanner(script);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                if (line.contains("server.id")) {
-                    version = line.substring(
-                            line.indexOf("'v") + 2,
-                            line.lastIndexOf("'"));
-                }
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return version;
     }
 
 

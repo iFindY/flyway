@@ -1,7 +1,7 @@
 package de.arkadi.migration;
 
 
-import de.arkadi.utils.Loggable;
+import de.arkadi.qualifier.Loggable;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 
