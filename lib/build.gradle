@@ -1,7 +1,17 @@
+/**
+ * The repositories in the buildScript block are used to fetch the dependencies of your buildScript dependencies. 
+ * These are the dependencies that are put on the classpath of your build and that you can refer to from your build file. 
+ * For instance extra plugins that exist on the internet.
+ *
+ * 
+ * The build script (i.e. build.gradle) may have some dependencies for the execution of the build script itself. 
+ * 
+ * You would enclose those dependencies within the buildScript block
+ */
 buildscript {
     dependencies {
         classpath files('../plugin/out/libs/flywayPlugin-1.0.jar')
     }
 }
 
-apply plugin: 'de.arkadi.plugin'
+apply plugin: 'de.arkadi.plugin.flyway'
