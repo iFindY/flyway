@@ -12,7 +12,7 @@ import org.gradle.plugins.ear.Ear
 // TIP with doFirst- or doLast(Action) a Task is constructed which is chained with a the current Task.
 // TIP  hmm -> doLast(action) append the action at the end of the TaskAction list.
 // TIP project.hasProperty(version) // do stuff   logger.info  version
-
+// TIP setting.gradle can contain groovy loop code
 // TIP Gradle Lifecycle:
 // TIP Initialisation: gather information about all build participation projects (build.gradle's).
 //      TIP this phase maps to the init.gradle + settings.gradle
@@ -30,7 +30,42 @@ import org.gradle.plugins.ear.Ear
 // TIP Execution: Build get performed, by performing a series of Tasks.
 //      TIP relay on build.gradle
 // TIP each Phase of gradle lifecycle pas to a gradle file
+// TIP the delegate object og the script object is project, and the delegate object can change depending n the gradle lifecycle(init,config,exec)
+//      TIP Configuration phase: build.gradle -> script.object -> delegate.object == project.object.
+//      TIP Initialisation 2: settings.gradle -> script.object -> delegate.object == settings.object
+//          TIP this object is multi-project oriented. you can access all project within a build.
+//      TIP Initialisation 1: init.gradle -> script.object -> delegate.object == gradle.object
+//            TIP here gradle do not know about any projects in the build, settings.gradle not read.
+//      TIP Project.object -access-> gradle.object  || settings.object -access-> gradle.object
+// TIP logger.info "build.gradle${project.relativePath(project.buildFile)}" // lots of helper methods
+// TIP logger.info """ here a block of text is possible  """
+// TIP !! in groovy ist return optional , the last line gets returned
+// TIP !! def = Object;
+// TIP    Object date = new Date();
+// TIP    def date = new Date();
+// TIP    can use Types to be safe
+// TIP !! Type safety is only at runtime enforced
+// TIP !! groovy generates getters and setter
+// TIP !! you can access/create hashMaps with map.key
+
+// TIP !! def hallo ={} is a closure == lambda or anonymous inner class , you can call this with hallo(). last line returns.
+// TIP !! you can parameterize a closure  with hello{ a-> print a}  hello("arkadi")
+// TIP    can be typed hello{String a-> print a}  hello("arkadi")
+// TIP    closure without parameter implicitly take an untyped parameter "it"  hello{ print it}  hello("arkadi")
+// TIP    def hello{} == Closure hello{...}
+// TIP    ()  on methods are optional  halloMethod("arkadi") halloMethod "arkadi" ,if a closure is a parameter  helloMethod ({...}) or helloMethod {}
+// TIP   more then one argument -> close comes last,  helloMethod 1,2,"arkadi", {...}
+// TIP  closers keep reference to object where they have been defined p1.saynmae() == sayname()
+// TIP delegate object == context
+// TIP !!! Gradle magic def executeInside(Closure c){c.delegate=this;c();} //  closure passed to this methods ca access this class properties.
+
+
+// TIP rootProject.children.each { subproject -> subproject.buildFileName = "${subproject.name}.gradle"} // rename default assumed build.gradle file name in  file name inside the subProject for the myProject.gradle.
+// TIP you can run subprojct this will find root and do all needed stuff
+// TIP apply plugin 'findbugs'
+
 class MyJarPlugin implements Plugin<Project> {
+
 
     void apply(Project project) {
         project.defaultTasks('clean', 'flyEar')
