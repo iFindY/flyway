@@ -11,6 +11,25 @@ import org.gradle.plugins.ear.Ear
 // TIP you can ad "Actions" to a "Task" with doFirst() & doLast(). This take an Action or a Closure. Groovy-> Closure.
 // TIP with doFirst- or doLast(Action) a Task is constructed which is chained with a the current Task.
 // TIP  hmm -> doLast(action) append the action at the end of the TaskAction list.
+// TIP project.hasProperty(version) // do stuff   logger.info  version
+
+// TIP Gradle Lifecycle:
+// TIP Initialisation: gather information about all build participation projects (build.gradle's).
+//      TIP this phase maps to the init.gradle + settings.gradle
+//      TIP init.gradle setup environment variables,properties based on environment and personal information, repositories, register build listeners and loggers  ...
+//      TIP settings.gradle determine which project include in a build.
+//      TIP the settings.gradle file delegate object  is the "settings" object.
+//      TIP Create an instance for each project. starts with init.gradle+other.gradle extensions +settings.gradle
+//      TIP  init.gradle help setup build  environment d depending on the current machine. this one is inside .gradle/init.d
+//      TIP the init.gradle file delegate object is the "gradle" object.
+// TIP Configuration: in this phase, that configure created projects in the init-phase.
+//      TIP  relay on build.gradle
+//      TIP This read every build.gradle of a project. This build.gradle contain a configuration script.
+//      TIP The delegate object is the project
+//      TIP we write configuration scripts to do our stuff. For that we configure the delegate/project object
+// TIP Execution: Build get performed, by performing a series of Tasks.
+//      TIP relay on build.gradle
+// TIP each Phase of gradle lifecycle pas to a gradle file
 class MyJarPlugin implements Plugin<Project> {
 
     void apply(Project project) {
