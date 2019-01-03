@@ -8,38 +8,41 @@ import org.gradle.api.tasks.bundling.Jar
  *  this task is populated with  settings
  */
 class ServerJar extends Jar {
-    File libsDir = new File('out/libs')
     String version = '1.1'
-    String description = "my jar for flyway"
+    String libName = "flyway"
+    String classifire = 'migration'
+    String group = 'Arkadi'
+    String description = "create the flyway migration lib"
+    File destination = new File('out/libs')
 
 
     //TIP this part is == do first closure of a task
     @TaskAction
-    def meFirst(){
-
+    def meFirst() {
+        project.println("ServerJar Task: " + description)
     }
 
-    //TIP main jar task, i hope
     ServerJar() {
 
-        super.setDescription("create the flyway migration lib")
-        super.setDestinationDir(libsDir)
-        super.setBaseName('flyway')
-        super.setClassifier('migration')
-        super.setGroup("arkadi")
+        super.setDescription(description)
+        super.setDestinationDir(destination)
+        super.setBaseName(libName)
+        super.setClassifier(classifire)
+        super.setGroup(group)
 
-        super.from(sourceSets.main.output)
+        super.from(project.sourceSets.main.output.classesDirs) {
+            include("de/**")
+        }
 
         super.metaInf {
-            from(sourceSets.assets.resources) {
+            from(project.sourceSets.main.output.resourcesDir) {
                 exclude('xml')
                 rename '(.*)_(.*).sql', '$2__$1.sql'
             }
-            from(sourceSets.assets.resources.files) {
+            from(project.sourceSets.main.resources.files) {
                 include("*.xml")
             }
         }
-
         super.manifest {
             attributes('Tool-Version': version)
             attributes('Description': description)
@@ -47,5 +50,4 @@ class ServerJar extends Jar {
         }
 
     }
-
 }

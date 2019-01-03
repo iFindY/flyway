@@ -24,9 +24,13 @@ sourceSets {
 
 gradlePlugin {
     plugins {
-        simplePlugin {
+        firstPlugin {
             id = 'de.arkadi.plugin.flyway'
             implementationClass = 'de.arkadi.MyJarPlugin'
+        }
+        secondPlugin{
+            id = 'de.arkadi.plugin.flywayServer'
+            implementationClass = 'de.arkadi.MyPlugin'
         }
     }
 }

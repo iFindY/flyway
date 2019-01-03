@@ -115,13 +115,13 @@ class MyJarPlugin implements Plugin<Project> {
             main {
                 java {
                     srcDirs = ['src/java']
+                    outputDir = project.file('out/bin')
                 }
-            }
-            assets {
                 resources {
                     srcDirs = ['src/resources']
                 }
             }
+
         }
 
 
@@ -133,7 +133,6 @@ class MyJarPlugin implements Plugin<Project> {
             options.fork = true
             options.forkOptions.executable = 'javac'
             print options.compilerArgs
-
         }
 
 
@@ -145,14 +144,16 @@ class MyJarPlugin implements Plugin<Project> {
             setClassifier('ejb')
             setGroup("arkadi")
 
-            from(project.sourceSets.main.output)
+            from(project.sourceSets.main.output.classesDirs) {
+                include("de/**")
+            }
 
             metaInf {
-                from(project.sourceSets.assets.resources) {
+                from(project.sourceSets.main.output.resourcesDir) {
                     exclude('xml')
                     rename '(.*)_(.*).sql', '$2__$1.sql'
                 }
-                from(project.sourceSets.assets.resources.files) {
+                from(project.sourceSets.main.resources.files) {
                     include("*.xml")
                 }
             }

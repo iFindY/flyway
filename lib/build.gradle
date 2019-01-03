@@ -14,4 +14,4 @@ buildscript {
     }
 }
 
-apply plugin: 'de.arkadi.plugin.flyway'
+apply plugin: 'de.arkadi.plugin.flywayServer'
