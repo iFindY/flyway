@@ -8,8 +8,8 @@ class MyPlugin implements Plugin<Project> {
 
 
     void apply(Project project) {
-        project.defaultTasks( 'flyEar')
-
+        project.defaultTasks('ServerEar')
+        project.ext.earlib="lib/"
         project.repositories {
             mavenCentral()
         }
@@ -18,13 +18,14 @@ class MyPlugin implements Plugin<Project> {
             earlib
         }
 
+        // TIP export
         project.dependencies {
             compileOnly('javax:javaee-api:7.0')
             implementation('org.slf4j:slf4j-api:1.7.25')
             implementation('org.flywaydb:flyway-core:5.2.0')
             earlib('org.flywaydb:flyway-core:5.2.0')
         }
-
+        // TIP export
         project.sourceSets {
             main {
                 java {
@@ -39,7 +40,9 @@ class MyPlugin implements Plugin<Project> {
         }
 
 
-        project.tasks.create("ServerJar", ServerJar)
+        project.tasks.create("ServerJar", ServerJar){
+            libDir= project.ext.earlib
+        }
         project.tasks.create("ServerEar", ServerEar)
         project.tasks.create("ServerClean", ServerClean)
 

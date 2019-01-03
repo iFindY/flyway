@@ -14,7 +14,7 @@ class ServerJar extends Jar {
     String group = 'Arkadi'
     String description = "create the flyway migration lib"
     File destination = new File('out/libs')
-
+    String libDir='lib/'
 
     //TIP this part is == do first closure of a task
     @TaskAction
@@ -46,7 +46,7 @@ class ServerJar extends Jar {
         super.manifest {
             attributes('Tool-Version': version)
             attributes('Description': description)
-            attributes('Class-Path': project.configurations.earlib.files.collect { 'lib/' + it.name }.join(' '))
+            attributes('Class-Path': project.configurations.earlib.files.collect { libDir + it.name }.join(' '))
         }
 
     }

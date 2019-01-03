@@ -79,19 +79,11 @@ class MyJarPlugin implements Plugin<Project> {
             description = "my jar for flyway"
         }
 
-
         project.setGroup('de.arkadi')
         project.setDescription('This is a migration prototype')
         project.setVersion(project.ext.version)
         project.setBuildDir('out')
         project.setDefaultTasks(['flyEar'])
-        project.setSourceCompatibility('1.8')
-        project.setTargetCompatibility('1.8')
-
-
-        project.compileJava.options.debugOptions.debugLevel = "source,lines,vars"
-        project.compileTestJava.options.debugOptions.debugLevel = "source,lines,vars"
-
 
         project.repositories {
             mavenCentral()
@@ -132,6 +124,7 @@ class MyJarPlugin implements Plugin<Project> {
             options.warnings = false
             options.fork = true
             options.forkOptions.executable = 'javac'
+            options.debugOptions.debugLevel = "source,lines,vars"
             print options.compilerArgs
         }
 

@@ -9,7 +9,7 @@ class ServerEar extends Ear {
     String description = "create delayable archive containing the flyJar"
     String group = "Arkadi"
     File destination = new File('out/libs')
-
+    def serverJar = project.tasks.getByName("ServerJar").archivePath
 
     @TaskAction
     def meFirst() {
@@ -22,7 +22,7 @@ class ServerEar extends Ear {
         super.setBaseName(libName)
         super.setGroup(group)
 
-        super.from(project.tasks.getByName("ServerJar").archivePath)
+        super.from(serverJar)
 
         super.deploymentDescriptor {
             applicationName = libName
