@@ -13,5 +13,5 @@ buildscript {
         classpath files('../plugin/out/libs/flywayPlugin-1.0.jar')
     }
 }
-
-apply plugin: 'de.arkadi.plugin.flywayServer'
+// flyway flywayServer
+apply plugin: 'de.arkadi.plugin.flyway'

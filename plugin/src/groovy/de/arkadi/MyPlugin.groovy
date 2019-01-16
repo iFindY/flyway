@@ -8,8 +8,14 @@ class MyPlugin implements Plugin<Project> {
 
 
     void apply(Project project) {
+        project.apply plugin: 'java-library'
+        project.apply plugin: 'ear'
+
         project.defaultTasks('ServerEar')
-        project.ext.earlib="lib/"
+        project.ext.earlib = "lib/"
+        project.ext.projectStructure = new ProjectStructure()
+        project.sourceSets { project.ext.projectStructure.getLayout() }
+
         project.repositories {
             mavenCentral()
         }
@@ -25,23 +31,10 @@ class MyPlugin implements Plugin<Project> {
             implementation('org.flywaydb:flyway-core:5.2.0')
             earlib('org.flywaydb:flyway-core:5.2.0')
         }
-        // TIP export
-        project.sourceSets {
-            main {
-                java {
-                    srcDirs = ['src/java']
-                    outputDir = project.file('out/bin')
-                }
-                resources {
-                    srcDirs = ['src/resources']
-                }
-            }
-
-        }
 
 
-        project.tasks.create("ServerJar", ServerJar){
-            libDir= project.ext.earlib
+        project.tasks.create("ServerJar", ServerJar) {
+            libDir = project.ext.earlib
         }
         project.tasks.create("ServerEar", ServerEar)
         project.tasks.create("ServerClean", ServerClean)

@@ -1,7 +1,12 @@
 package de.arkadi
 
+import groovy.io.FileType
+import groovy.transform.TailRecursive
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.file.ConfigurableFileTree
+import org.gradle.api.file.FileCollection
+import org.gradle.api.file.FileTree
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.plugins.ear.Ear
@@ -68,17 +73,15 @@ class MyJarPlugin implements Plugin<Project> {
 
 
     void apply(Project project) {
-        project.defaultTasks('clean', 'flyEar')
-
         project.apply plugin: 'java-library'
         project.apply plugin: 'ear'
+        project.defaultTasks('clean', 'flyEar')
 
         project.ext {
             libsDir = project.file('out/libs')
             version = '1.1'
             description = "my jar for flyway"
         }
-
         project.setGroup('de.arkadi')
         project.setDescription('This is a migration prototype')
         project.setVersion(project.ext.version)
@@ -165,8 +168,12 @@ class MyJarPlugin implements Plugin<Project> {
             setDestinationDir(project.ext.libsDir)
             setGroup("arkadi")
 
+            exclude { it.file in project.sourceSets.main.resources.files }
+
             //TIP get archive from task, not working know
-            from project.tasks.getByName("flyJar").archivePath
+            from(project.tasks.getByName("flyJar").archivePath)
+
+
             //from(project.configurations.artifacts)
 
             deploymentDescriptor {
@@ -180,7 +187,8 @@ class MyJarPlugin implements Plugin<Project> {
         project.tasks.create("flyClean", Delete) {
             setGroup("arkadi")
             setDescription("clean classes dir: " + project.getBuildDir().toString())
-            delete(project.sourceSets.main.output.find { 'classes' })
+            delete(project.sourceSets.main.output.classesDirs.getSingleFile())
+            delete(project.sourceSets.main.output.resourcesDir)
         }
 
         //TIP configure existing tasks
@@ -199,6 +207,51 @@ class MyJarPlugin implements Plugin<Project> {
                     .forEach { x -> x.getFiles() }
         }
 
+        project.tasks.create("printResources") {
+            println "\n ========================================================"
+            println " Arkadi: Resources folder \n"
+            println project.sourceSets.main.output.resourcesDir
+            project.sourceSets.main.output.resourcesDir
+                    .listFiles()
+                    .collect { project.relativePath(it) }
+                    .sort()
+                    .each { println "\t\t\t\t\t\t  ".concat(it) }
+        }
+
+        // TIP recursion not direct supported
+        project.tasks.create("printClasses") {
+            try {
+                File classesDir = project.sourceSets.main.output.classesDirs.getSingleFile()
+                List layout = []
+
+                classesDir.eachFile(FileType.DIRECTORIES, {
+                    it.eachFile(FileType.DIRECTORIES, {
+                        it.eachFile(FileType.DIRECTORIES, {
+                            layout.add(project.relativePath(it))
+                            it.eachFile(FileType.DIRECTORIES, {
+                                layout.add(project.relativePath(it))
+                                it.eachFile(FileType.DIRECTORIES, {
+                                    it.eachFile(FileType.DIRECTORIES, {
+                                        layout.add(project.relativePath(it))
+                                    })
+                                    layout.add(project.relativePath(it))
+                                })
+                            })
+                        })
+                        layout.add(project.relativePath(it))
+                    })
+                    layout.add(project.relativePath(it))
+                })
+                println "\n ========================================================"
+                println " Arkadi: Classes folder \n"
+                println classesDir
+                layout.each { println "\t\t\t\t\t\t  ".concat(it) }
+
+            } catch (FileNotFoundException e) {
+                println(e.getMessage())
+            }
+        }
+
 
         // TIP Hocks
         // TIP printing the dependency graph
@@ -207,10 +260,12 @@ class MyJarPlugin implements Plugin<Project> {
         // TIP you can do if  taskGraph.hasTask(flyJar) to set some properties, in the whenReady block
         // TIP you can taskGraph.before/afterTask{task->println task.name} // takes the current graph-task and do something
         project.gradle.taskGraph.whenReady {
-            project.println(" Dependency Graph")
+            println "\n ========================================================"
+            println " Arkadi: Dependency Graph \n"
             project.gradle.taskGraph.allTasks.forEach {
                 task -> project.printf("  > %-30s  %s%n", task, task.description)
             }
+            println "\n\n"
         }
 
 
@@ -219,6 +274,9 @@ class MyJarPlugin implements Plugin<Project> {
         // TIP this technique allow if statements if( bool){ construct graph }
         project.flyJar.dependsOn(project.wrapper)
         project.flyEar.dependsOn(project.flyClean, project.flyJar)
+        project.printClasses.mustRunAfter(project.classes)
+        project.printResources.mustRunAfter(project.classes)
         project.flyClean.shouldRunAfter(project.flyJar)
     }
+
 }
