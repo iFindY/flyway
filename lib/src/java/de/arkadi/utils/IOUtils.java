@@ -1,6 +1,7 @@
-package de.arkadi.utils;
+package com.novomind.ipim.core.util.arkadi.utils;
 
-import de.arkadi.qualifier.FWClassLoader;
+
+import com.novomind.ipim.core.util.arkadi.qualifier.FWClassLoader;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;
@@ -37,6 +38,7 @@ public class IOUtils {
     }
 
 
+    // helper method for .*filename.* search
     public String getPath(String directory, String file) {
         String path = directory;
 
@@ -54,18 +56,17 @@ public class IOUtils {
         return path;
     }
 
-    public String getValue(String path, String regEx) {
+    public String searchVersion(String file, String regEx) {
         String version = null;
-        Pattern pattern = Pattern.compile("v" + regEx);
+        Pattern pattern = Pattern.compile(regEx);
 
-        try (InputStream script = classLoader.getResourceAsStream(path)) {
+        try (InputStream script = classLoader.getResourceAsStream(file)) {
             String lonString = new BufferedReader(new InputStreamReader(script))
                     .lines()
                     .collect(Collectors.joining("\n"));
 
             Matcher matcher = pattern.matcher(lonString);
             matcher.find();
-
             version = matcher.group().substring(1);
 
         } catch (IOException e) {

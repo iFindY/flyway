@@ -1,27 +1,30 @@
-package de.arkadi.model;
+package com.novomind.ipim.core.util.arkadi.model;
 
-import de.arkadi.qualifier.FWClassLoader;
-import de.arkadi.utils.IOUtils;
+import com.novomind.ipim.core.util.arkadi.qualifier.FWClassLoader;
+import com.novomind.ipim.core.util.arkadi.utils.IOUtils;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.Properties;
 
-
+/**
+ * This class load properties needed for FlyWay startup and hold flyway specific information.
+ * The BaselineVersion is automatically replaced wit the iPIM INSERT.sql script server.id  property.
+ * If the script do not contain a version number the property setting is kept as default.
+ **/
 @ApplicationScoped
 public class ApplicationProperties {
+    private static String PROPERTIES_LOCATION = "META-INF/ipim/flyway/";
+    private static String CORE_BASELINE_PROPERTIES = "core-baseline.properties";
+    private static String CORE_RELEASES_PROPERTIES = "core-release.properties";
+    private static String PROJECT_PRE_PROPERTIES = "project-pre-core-release.properties";
+    private static String PROJECT_POST_PROPERTIES = "project-post-core-release.properties";
 
-    private static String PROPERTIES_LOCATION = "META-INF/properties/";
-    private static String APPLICATION = "application.properties";
-    private static String BASELINE_NAME = "baselineFlyway.properties";
-    private static String CORE_NAME = "coreFlyway.properties";
-    private static String PROJECT_NAME = "projectFlyway.properties";
-
-    private Properties application;
-    private Properties baselineFlyway;
-    private Properties coreFlyway;
-    private Properties projectFlyway;
+    private Properties coreBaseline;
+    private Properties coreReleases;
+    private Properties projectReleasesPost;
+    private Properties projectReleasesPre;
 
     @Inject
     @FWClassLoader
@@ -32,32 +35,40 @@ public class ApplicationProperties {
 
     @PostConstruct
     private void loadProperties() {
-        application = utils.load(PROPERTIES_LOCATION, APPLICATION);
-        baselineFlyway = utils.load(PROPERTIES_LOCATION, application.getProperty(BASELINE_NAME));
-        coreFlyway = utils.load(PROPERTIES_LOCATION, application.getProperty(CORE_NAME));
-        projectFlyway = utils.load(PROPERTIES_LOCATION, application.getProperty(PROJECT_NAME));
+        coreBaseline = utils.load(PROPERTIES_LOCATION, CORE_BASELINE_PROPERTIES);
+        coreReleases = utils.load(PROPERTIES_LOCATION, CORE_RELEASES_PROPERTIES);
+        projectReleasesPre = utils.load(PROPERTIES_LOCATION, PROJECT_PRE_PROPERTIES);
+        projectReleasesPost = utils.load(PROPERTIES_LOCATION, PROJECT_POST_PROPERTIES);
 
-        baselineFlyway.replace("flyway.baselineVersion", updateVersion());
+        coreReleases.replace("flyway.baselineVersion", baselineVersion());
     }
 
-    private String updateVersion() {
-        String regEx = "\\d+\\.\\d+\\.\\d+";
-        String path = utils.getPath("META-INF/sql/baseline/", "iPIM INSERT.sql");
+    private String baselineVersion() {
+        String dir = coreBaseline.getProperty("flyway.locations").concat("/");
+        String name = "iPIM INSERT";
 
-        return utils.getValue(path, regEx);
+        String file = utils.getPath(dir, name);
+        String regEx = "v\\d+\\.\\d+\\.\\d+";
+
+        return utils.searchVersion(file, regEx);
     }
 
-    public Properties getBaselineFlyway() {
-        return baselineFlyway;
+    public Properties getCoreBaseline() {
+
+        return coreBaseline;
     }
 
-    public Properties getCoreFlyway() {
-        return coreFlyway;
+    public Properties getCoreReleases() {
+
+        return coreReleases;
     }
 
-    public Properties getProjectFlyway() {
-        return projectFlyway;
+    public Properties getProjectReleasesPost() {
+        return projectReleasesPost;
     }
 
+    public Properties getProjectReleasesPre() {
+        return projectReleasesPre;
+    }
 
 }

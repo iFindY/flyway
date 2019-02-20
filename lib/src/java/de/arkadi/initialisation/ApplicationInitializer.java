@@ -1,17 +1,17 @@
-package de.arkadi.initialisation;
+package com.novomind.ipim.core.util.arkadi.initialisation;
 
 
-import de.arkadi.migration.Migration;
-import de.arkadi.qualifier.FlyWayTarget;
+import com.novomind.ipim.core.util.arkadi.migration.Migration;
+import com.novomind.ipim.core.util.arkadi.qualifier.FlyWayTarget;
+import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-
 import javax.ejb.TransactionManagement;
 import javax.inject.Inject;
 
-import static de.arkadi.qualifier.FlyWayTarget.Target.*;
+import static com.novomind.ipim.core.util.arkadi.qualifier.FlyWayTarget.Target.*;
 import static javax.ejb.TransactionManagementType.BEAN;
 
 
@@ -21,23 +21,43 @@ import static javax.ejb.TransactionManagementType.BEAN;
 public class ApplicationInitializer {
 
     @Inject
-    @FlyWayTarget(BASELINE)
-    Migration flywayBaseline;
+    Logger LOGGER;
 
     @Inject
-    @FlyWayTarget(CORE)
-    Migration flywayCore;
+    @FlyWayTarget(CORE_BASELINE)
+    Migration coreBaseline;
 
     @Inject
-    @FlyWayTarget(PROJECT)
-    Migration flywayProject;
+    @FlyWayTarget(CORE_RELEASES)
+    Migration coreRelease;
+
+    @Inject
+    @FlyWayTarget(PROJECT_PRE)
+    Migration projectPreRelease;
+
+    @Inject
+    @FlyWayTarget(PROJECT_POST)
+    Migration projectPostRelease;
 
 
     @PostConstruct
     private void init() {
-        flywayBaseline.migrate();
-        flywayCore.migrate();
-        flywayProject.migrate();
+        String enabled = System.getProperty("flyway", "false");
+        if (Boolean.valueOf(enabled)) {
+
+            coreBaseline.baseline();
+            coreBaseline.migrate();
+
+            projectPreRelease.baseline();
+            projectPreRelease.migrate();
+
+            coreRelease.baseline();
+            coreRelease.migrate();
+
+            projectPostRelease.baseline();
+            projectPostRelease.migrate();
+        }
+        LOGGER.info("Flyway migration enabled : {}", enabled.toUpperCase());
     }
 
 }

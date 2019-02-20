@@ -1,4 +1,4 @@
-package de.arkadi.migration;
+package com.novomind.ipim.core.util.arkadi.migration;
 
 
 import java.util.List;

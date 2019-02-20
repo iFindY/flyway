@@ -1,7 +1,7 @@
-package de.arkadi.migration;
+package com.novomind.ipim.core.util.arkadi.migration;
 
 
-import de.arkadi.qualifier.Loggable;
+import com.novomind.ipim.core.util.arkadi.qualifier.Loggable;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 
@@ -12,7 +12,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static javax.transaction.Transactional.TxType.*;
+import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @Loggable
 @Transactional(SUPPORTS)
@@ -26,9 +26,9 @@ public class FlywayMigration implements Migration {
         flyway.baseline();
     }
 
-    // wipe database with all migration
     public void clean() {
         flyway.clean();
+
     }
 
     // migrate new not applied sql scripts

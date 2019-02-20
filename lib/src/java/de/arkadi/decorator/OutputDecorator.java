@@ -1,6 +1,6 @@
-package de.arkadi.decorator;
+package com.novomind.ipim.core.util.arkadi.decorator;
 
-import de.arkadi.migration.Migration;
+import com.novomind.ipim.core.util.arkadi.migration.Migration;
 
 import javax.decorator.Decorator;
 import javax.decorator.Delegate;
@@ -17,16 +17,18 @@ public class OutputDecorator implements Migration {
     Migration migration;
 
 
+    @Override
     public void initialize() {
 
     }
 
+    @Override
     public void clean() {
 
     }
 
+    @Override
     public String migrate() {
-        System.out.println("na".repeat(16) + "Batmen");
         String migrationCount = migration.migrate();
         return "Migrations Applied : " + migrationCount;
     }

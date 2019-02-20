@@ -1,4 +1,4 @@
-package de.arkadi.qualifier;
+package com.novomind.ipim.core.util.arkadi.qualifier;
 
 
 import javax.inject.Qualifier;
