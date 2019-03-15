@@ -21,25 +21,16 @@ import static de.arkadi.qualifier.FlyWayTarget.Target.*;
 
 public class Producer {
 
-    @Resource(lookup = "java:/iPIMDS-Postgres")
-    DataSource dataSource;
-
     @Inject
     ApplicationProperties applicationProperties;
 
 
-    @Produces
-    @ApplicationScoped
-    public DataSource dataSource() {
-        return dataSource;
-    }
 
-    @Produces
-    @Named("myClassloader")
-    public ClassLoader produceClassLoader() {
-        return this.getClass().getClassLoader();
-    }
+    @Produces @ApplicationScoped @Resource(lookup = "java:/iPIMDS-Postgres")
+    DataSource dataSource;
 
+    @Produces @Named("FWCloader")
+    URLClassloader cl = this.getClass().getClassLoader();
 
     @Produces
     public Logger produceLoggerSLF4J(InjectionPoint injectionPoint) {
@@ -48,33 +39,25 @@ public class Producer {
     }
 
 
-    @Produces
-    @RequestScoped
-    @FlyWayTarget(CORE_BASELINE)
+    @Produces @FlyWayTarget(CORE_BASELINE) @RequestScoped
     public Migration produceFlywayBaseline(FlywayMigration flyWay) {
         flyWay.setupFlyway(applicationProperties.getCoreBaseline(), dataSource);
         return flyWay;
     }
 
-    @Produces
-    @RequestScoped
-    @FlyWayTarget(CORE_RELEASES)
+    @Produces @FlyWayTarget(CORE_RELEASES) @RequestScoped
     public Migration produceFlywayCore(FlywayMigration flyWay) {
         flyWay.setupFlyway(applicationProperties.getCoreReleases(), dataSource);
         return flyWay;
     }
 
-    @Produces
-    @RequestScoped
-    @FlyWayTarget(PROJECT_POST)
+    @Produces @FlyWayTarget(PROJECT_POST) @RequestScoped
     public Migration produceFlywayProjectPost(FlywayMigration flyWay) {
         flyWay.setupFlyway(applicationProperties.getProjectReleasesPost(), dataSource);
         return flyWay;
     }
 
-    @Produces
-    @RequestScoped
-    @FlyWayTarget(PROJECT_PRE)
+    @Produces @FlyWayTarget(PROJECT_PRE) @RequestScoped
     public Migration produceFlywayProjectPre(FlywayMigration flyWay) {
         flyWay.setupFlyway(applicationProperties.getProjectReleasesPre(), dataSource);
         return flyWay;

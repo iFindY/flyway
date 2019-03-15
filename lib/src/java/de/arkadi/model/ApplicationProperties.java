@@ -26,8 +26,7 @@ public class ApplicationProperties {
     private Properties projectReleasesPost;
     private Properties projectReleasesPre;
 
-    @Inject
-    @Named("myClassloader")
+    @Inject @Named("FWCloader")
     private ClassLoader classLoader;
 
     @Inject

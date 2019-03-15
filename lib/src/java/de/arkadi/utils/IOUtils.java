@@ -20,8 +20,7 @@ import java.util.stream.Collectors;
 
 public class IOUtils {
 
-    @Inject
-    @Named("myClassloader")
+    @Inject @Named("FWCloader")
     private ClassLoader classLoader;
 
     @Inject
