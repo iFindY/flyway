@@ -1,6 +1,6 @@
-package com.novomind.ipim.core.util.arkadi.model;
+package de.arkadi.model;
 
-import com.novomind.ipim.core.util.arkadi.qualifier.FWClassLoader;
+import de.arkadi.qualifier.FWClassLoader;
 import com.novomind.ipim.core.util.arkadi.utils.IOUtils;
 
 import javax.annotation.PostConstruct;

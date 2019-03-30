@@ -1,7 +1,7 @@
-package com.novomind.ipim.core.util.arkadi.interceptors;
+package de.arkadi.interceptors;
 
 
-import com.novomind.ipim.core.util.arkadi.qualifier.Loggable;
+import de.arkadi.qualifier.Loggable;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;

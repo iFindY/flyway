@@ -1,8 +1,9 @@
-package com.novomind.ipim.core.util.arkadi.initialisation;
+package de.arkadi.initialisation;
 
 
-import com.novomind.ipim.core.util.arkadi.migration.Migration;
-import com.novomind.ipim.core.util.arkadi.qualifier.FlyWayTarget;
+
+import de.arkadi.migration.Migration;
+import de.arkadi.qualifier.FlyWayTarget;
 import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;
@@ -11,7 +12,8 @@ import javax.ejb.Startup;
 import javax.ejb.TransactionManagement;
 import javax.inject.Inject;
 
-import static com.novomind.ipim.core.util.arkadi.qualifier.FlyWayTarget.Target.*;
+
+import static de.arkadi.qualifier.FlyWayTarget.Target.*;
 import static javax.ejb.TransactionManagementType.BEAN;
 
 

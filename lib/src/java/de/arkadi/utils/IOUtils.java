@@ -1,7 +1,7 @@
-package com.novomind.ipim.core.util.arkadi.utils;
+package de.arkadi.utils;
 
 
-import com.novomind.ipim.core.util.arkadi.qualifier.FWClassLoader;
+import de.arkadi.qualifier.FWClassLoader;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;

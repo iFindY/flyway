@@ -1,6 +1,8 @@
-package com.novomind.ipim.core.util.arkadi.decorator;
+package de.arkadi.decorator;
 
-import com.novomind.ipim.core.util.arkadi.migration.Migration;
+
+
+import de.arkadi.migration.Migration;
 
 import javax.decorator.Decorator;
 import javax.decorator.Delegate;

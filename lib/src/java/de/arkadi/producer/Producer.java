@@ -1,9 +1,9 @@
-package com.novomind.ipim.core.util.arkadi.producer;
+package de.arkadi.producer;
 
-import com.novomind.ipim.core.util.arkadi.migration.FlywayMigration;
-import com.novomind.ipim.core.util.arkadi.migration.Migration;
-import com.novomind.ipim.core.util.arkadi.model.ApplicationProperties;
-import com.novomind.ipim.core.util.arkadi.qualifier.*;
+import de.arkadi.migration.FlywayMigration;
+import de.arkadi.migration.Migration;
+import de.arkadi.model.ApplicationProperties;
+import de.arkadi.qualifier.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import static com.novomind.ipim.core.util.arkadi.qualifier.FlyWayTarget.Target.*;
+import static de.arkadi.qualifier.FlyWayTarget.Target.*;
 
 
 public class Producer {

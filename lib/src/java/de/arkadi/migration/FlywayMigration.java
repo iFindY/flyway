@@ -1,7 +1,8 @@
-package com.novomind.ipim.core.util.arkadi.migration;
+package de.arkadi.migration;
 
 
-import com.novomind.ipim.core.util.arkadi.qualifier.Loggable;
+
+import de.arkadi.qualifier.Loggable;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
 

@@ -1,4 +1,4 @@
-package com.novomind.ipim.core.util.arkadi.qualifier;
+package de.arkadi.qualifier;
 
 import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.Retention;
