@@ -13,6 +13,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.sql.DataSource;
 
 import static de.arkadi.qualifier.FlyWayTarget.Target.*;
@@ -34,7 +35,7 @@ public class Producer {
     }
 
     @Produces
-    @FWClassLoader
+    @Named("myClassloader")
     public ClassLoader produceClassLoader() {
         return this.getClass().getClassLoader();
     }
@@ -78,5 +79,7 @@ public class Producer {
         flyWay.setupFlyway(applicationProperties.getProjectReleasesPre(), dataSource);
         return flyWay;
     }
+
+    //TODO disposers
 
 }

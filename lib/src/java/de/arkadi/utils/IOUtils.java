@@ -1,10 +1,11 @@
 package de.arkadi.utils;
 
 
-import de.arkadi.qualifier.FWClassLoader;
+
 import org.slf4j.Logger;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 public class IOUtils {
 
     @Inject
-    @FWClassLoader
+    @Named("myClassloader")
     private ClassLoader classLoader;
 
     @Inject

@@ -1,11 +1,11 @@
 package de.arkadi.model;
 
-import de.arkadi.qualifier.FWClassLoader;
-import com.novomind.ipim.core.util.arkadi.utils.IOUtils;
+import de.arkadi.utils.IOUtils;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.Properties;
 
 /**
@@ -27,7 +27,7 @@ public class ApplicationProperties {
     private Properties projectReleasesPre;
 
     @Inject
-    @FWClassLoader
+    @Named("myClassloader")
     private ClassLoader classLoader;
 
     @Inject
