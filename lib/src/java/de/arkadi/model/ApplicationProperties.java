@@ -15,7 +15,7 @@ import java.util.Properties;
  **/
 @ApplicationScoped
 public class ApplicationProperties {
-    private static String PROPERTIES_LOCATION = "META-INF/ipim/flyway/";
+    private static String PROPERTIES_LOCATION = "META-INF/properties/flyway/";
     private static String CORE_BASELINE_PROPERTIES = "core-baseline.properties";
     private static String CORE_RELEASES_PROPERTIES = "core-release.properties";
     private static String PROJECT_PRE_PROPERTIES = "project-pre-core-release.properties";

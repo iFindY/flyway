@@ -6,7 +6,7 @@ plugins {
 group 'de.arkadi'
 version '1.0'
 setBuildDir 'out'
-
+wrapper.gradleVersion="5.4"
 
 dependencies {
     compile gradleApi()

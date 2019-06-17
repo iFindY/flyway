@@ -1,7 +1,6 @@
 package de.arkadi.utils;
 
 
-
 import org.slf4j.Logger;
 
 import javax.inject.Inject;
@@ -20,7 +19,8 @@ import java.util.stream.Collectors;
 
 public class IOUtils {
 
-    @Inject @Named("FWCloader")
+    @Inject
+    @Named("FWCloader")
     private ClassLoader classLoader;
 
     @Inject
@@ -31,8 +31,8 @@ public class IOUtils {
         try (InputStream input = classLoader.getResourceAsStream(base + property)) {
             result.load(input);
 
-        } catch (IOException e) {
-            LOGGER.error("can not find file => \n", e.getCause());
+        } catch (Exception e) {
+            LOGGER.error("can not find file => {} :: {}", base.concat(property), e.getMessage());
         }
         return result;
     }
@@ -50,8 +50,8 @@ public class IOUtils {
                 path = entry.getName().contains(file) ? path.concat(entry.getName()) : path;
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            LOGGER.error("can not find file {} in path {} :: {}", file,path, e.getMessage());
         }
         return path;
     }

@@ -7,6 +7,7 @@ import de.arkadi.qualifier.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
@@ -18,7 +19,7 @@ import javax.sql.DataSource;
 
 import static de.arkadi.qualifier.FlyWayTarget.Target.*;
 
-
+@ApplicationScoped
 public class Producer {
 
     @Inject
@@ -26,11 +27,11 @@ public class Producer {
 
 
 
-    @Produces @ApplicationScoped @Resource(lookup = "java:/iPIMDS-Postgres")
+    @Produces @Resource(lookup = "java:/iPIMDS")
     DataSource dataSource;
 
     @Produces @Named("FWCloader")
-    URLClassloader cl = this.getClass().getClassLoader();
+    ClassLoader cl = this.getClass().getClassLoader();
 
     @Produces
     public Logger produceLoggerSLF4J(InjectionPoint injectionPoint) {

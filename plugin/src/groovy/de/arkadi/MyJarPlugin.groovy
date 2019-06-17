@@ -4,6 +4,7 @@ import groovy.io.FileType
 import groovy.transform.TailRecursive
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.Task
 import org.gradle.api.file.ConfigurableFileTree
 import org.gradle.api.file.FileCollection
 import org.gradle.api.file.FileTree
@@ -86,14 +87,12 @@ class MyJarPlugin implements Plugin<Project> {
         project.setDescription('This is a migration prototype')
         project.setVersion(project.ext.version)
         project.setBuildDir('out')
-        project.setDefaultTasks(['flyEar'])
 
         project.repositories {
             mavenCentral()
         }
 
         project.configurations {
-            artifacts
             earlib
         }
 
@@ -103,8 +102,8 @@ class MyJarPlugin implements Plugin<Project> {
             implementation('org.slf4j:slf4j-api:1.7.25')
             implementation('org.flywaydb:flyway-core:5.2.0')
             earlib('org.flywaydb:flyway-core:5.2.0')
-            artifacts project.fileTree(dir: project.libsDir, include: '*.jar')
         }
+
 
         project.sourceSets {
             main {
@@ -134,7 +133,8 @@ class MyJarPlugin implements Plugin<Project> {
 
         // TIP simple version to create a task, this one include configure without .configure
         project.task("flyJar", type: Jar, dependsOn: project.classes) {
-            setDescription("create the flyway migration lib")
+            project.
+                    setDescription("create the flyway migration lib")
             setDestinationDir(project.ext.libsDir)
             setBaseName('flyway')
             setClassifier('ejb')
@@ -163,20 +163,12 @@ class MyJarPlugin implements Plugin<Project> {
         }
 
         // TIP different version to create a task. you can append <.configure{}>
-        project.tasks.create("flyEar", Ear) {
-            setDescription("create deployable archive containing the flyJar")
-            setDestinationDir(project.ext.libsDir)
-            setGroup("arkadi")
-
-            exclude { it.file in project.sourceSets.main.resources.files }
-
-            //TIP get archive from task, not working know
-            from(project.tasks.getByName("flyJar").archivePath)
-
-
-            //from(project.configurations.artifacts)
-
-            deploymentDescriptor {
+        project.tasks.create("flyEar", Ear) { Task t ->
+            t.setDescription("create delayable archive containing the flyJar")
+            t.setDestinationDir(project.ext.libsDir)
+            t.setGroup("arkadi")
+            t.from "$project.libsDir" include "*.jar"
+            t.deploymentDescriptor {
                 applicationName = "flyway"
                 displayName = "flyway"
                 module("flyway-1.1-ejb.jar", "java")
@@ -272,11 +264,9 @@ class MyJarPlugin implements Plugin<Project> {
         // TIP project.tasks.findAll{task-> task.startsWith('fly')} this return a list of tasks, you can depend on them.
         // TIP you can dependOn a coma separated list of tasks in one line
         // TIP this technique allow if statements if( bool){ construct graph }
-        project.flyJar.dependsOn(project.wrapper)
-        project.flyEar.dependsOn(project.flyClean, project.flyJar)
-        project.printClasses.mustRunAfter(project.classes)
-        project.printResources.mustRunAfter(project.classes)
-        project.flyClean.shouldRunAfter(project.flyJar)
+        project.flyJar.dependsOn project.wrapper
+        project.flyEar.dependsOn project.flyJar, project.flyClean
+        project.flyClean.mustRunAfter project.flyJar
     }
 
 }

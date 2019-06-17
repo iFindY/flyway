@@ -1,5 +1,4 @@
 rootProject.name ="flyway"
 includeBuild "../plugin"
-// beide simnd gleich ?
 //include 'flywayPlugin'
 //project(':flywayPlugin').projectDir = file("../plugin")
