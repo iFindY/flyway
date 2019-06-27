@@ -7,7 +7,7 @@ group 'de.arkadi'
 version '1.0'
 setBuildDir 'out'
 wrapper.gradleVersion="5.4"
-
+wrapper.distributionType = Wrapper.DistributionType.ALL
 dependencies {
     compile gradleApi()
     compile localGroovy()

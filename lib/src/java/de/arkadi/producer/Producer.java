@@ -25,12 +25,15 @@ public class Producer {
     @Inject
     ApplicationProperties applicationProperties;
 
+    @Produces
+    boolean enabled = Boolean.valueOf(System.getProperty("flyway", "false"));
 
-
-    @Produces @Resource(lookup = "java:/iPIMDS")
+    @Produces
+    @Resource(lookup = "java:/PostgresDS")
     DataSource dataSource;
 
-    @Produces @Named("FWCloader")
+    @Produces
+    @Named("FWCloader")
     ClassLoader cl = this.getClass().getClassLoader();
 
     @Produces
@@ -40,27 +43,27 @@ public class Producer {
     }
 
 
-    @Produces @FlyWayTarget(CORE_BASELINE) @RequestScoped
+    @Produces
+    @FlyWayTarget(CORE_BASELINE)
+    @RequestScoped
     public Migration produceFlywayBaseline(FlywayMigration flyWay) {
         flyWay.setupFlyway(applicationProperties.getCoreBaseline(), dataSource);
         return flyWay;
     }
 
-    @Produces @FlyWayTarget(CORE_RELEASES) @RequestScoped
+    @Produces
+    @FlyWayTarget(CORE_RELEASES)
+    @RequestScoped
     public Migration produceFlywayCore(FlywayMigration flyWay) {
         flyWay.setupFlyway(applicationProperties.getCoreReleases(), dataSource);
         return flyWay;
     }
 
-    @Produces @FlyWayTarget(PROJECT_POST) @RequestScoped
+    @Produces
+    @FlyWayTarget(PROJECT_RELEASE)
+    @RequestScoped
     public Migration produceFlywayProjectPost(FlywayMigration flyWay) {
-        flyWay.setupFlyway(applicationProperties.getProjectReleasesPost(), dataSource);
-        return flyWay;
-    }
-
-    @Produces @FlyWayTarget(PROJECT_PRE) @RequestScoped
-    public Migration produceFlywayProjectPre(FlywayMigration flyWay) {
-        flyWay.setupFlyway(applicationProperties.getProjectReleasesPre(), dataSource);
+        flyWay.setupFlyway(applicationProperties.getProjectRelease(), dataSource);
         return flyWay;
     }
 

@@ -3,9 +3,9 @@
  * These are the dependencies that are put on the classpath of your build and that you can refer to from your build file. 
  * For instance extra plugins that exist on the internet.
  *
- * 
+ *
  * The build script (i.e. build.gradle) may have some dependencies for the execution of the build script itself. 
- * 
+ *
  * You would enclose those dependencies within the buildScript block
  */
 buildscript {

@@ -1,10 +1,10 @@
-package de.arkadi
+package de.arkadi.extenssions
 
 import org.gradle.api.tasks.SourceSet
 
 class ProjectStructure {
 
-    SourceSet projectLayout =
+    def projectLayout =
             main {
                 java {
                     srcDirs = ['src/java']

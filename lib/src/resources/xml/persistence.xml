@@ -8,10 +8,11 @@
 
     <persistence-unit name="Arkadi-Persistence-Unit">
         <!--<jta-data-source>java:jboss/datasources/ArkadiDS</jta-data-source>-->
-        <jta-data-source>java:/iPIMDS</jta-data-source>
+        <jta-data-source>java:/PostgresDS</jta-data-source>
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-            <property name="hibernate.default_schema" value="IPIM_SC_QA"/>
+<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.default_schema" value="NovomindDB"/>
         </properties>
     </persistence-unit>
 </persistence>

@@ -18,13 +18,11 @@ public class ApplicationProperties {
     private static String PROPERTIES_LOCATION = "META-INF/properties/flyway/";
     private static String CORE_BASELINE_PROPERTIES = "core-baseline.properties";
     private static String CORE_RELEASES_PROPERTIES = "core-release.properties";
-    private static String PROJECT_PRE_PROPERTIES = "project-pre-core-release.properties";
-    private static String PROJECT_POST_PROPERTIES = "project-post-core-release.properties";
+    private static String PROJECT_PROPERTIES = "project-release.properties";
 
     private Properties coreBaseline;
     private Properties coreReleases;
-    private Properties projectReleasesPost;
-    private Properties projectReleasesPre;
+    private Properties projectRelease;
 
     @Inject @Named("FWCloader")
     private ClassLoader classLoader;
@@ -36,8 +34,7 @@ public class ApplicationProperties {
     private void loadProperties() {
         coreBaseline = utils.load(PROPERTIES_LOCATION, CORE_BASELINE_PROPERTIES);
         coreReleases = utils.load(PROPERTIES_LOCATION, CORE_RELEASES_PROPERTIES);
-        projectReleasesPre = utils.load(PROPERTIES_LOCATION, PROJECT_PRE_PROPERTIES);
-        projectReleasesPost = utils.load(PROPERTIES_LOCATION, PROJECT_POST_PROPERTIES);
+        projectRelease = utils.load(PROPERTIES_LOCATION, PROJECT_PROPERTIES);
 
         coreReleases.replace("flyway.baselineVersion", baselineVersion());
     }
@@ -62,12 +59,7 @@ public class ApplicationProperties {
         return coreReleases;
     }
 
-    public Properties getProjectReleasesPost() {
-        return projectReleasesPost;
+    public Properties getProjectRelease() {
+        return projectRelease;
     }
-
-    public Properties getProjectReleasesPre() {
-        return projectReleasesPre;
-    }
-
 }

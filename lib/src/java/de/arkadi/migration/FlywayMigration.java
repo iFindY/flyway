@@ -1,7 +1,6 @@
 package de.arkadi.migration;
 
 
-
 import de.arkadi.qualifier.Loggable;
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfo;
@@ -51,6 +50,7 @@ public class FlywayMigration implements Migration {
     public void setupFlyway(Properties properties, DataSource dataSource) {
         this.flyway = Flyway.configure()
                 .dataSource(dataSource)
+                .schemas(properties.getProperty("flyway.schemas"))
                 .table(properties.getProperty("flyway.table"))
                 .locations(properties.getProperty("flyway.locations"))
                 .installedBy(properties.getProperty("flyway.installedBy"))
@@ -60,6 +60,7 @@ public class FlywayMigration implements Migration {
                 .baselineOnMigrate(Boolean.valueOf(properties.getProperty("flyway.baselineOnMigrate")))
                 .ignoreMissingMigrations(Boolean.valueOf(properties.getProperty("flyway.ignoreMissingMigrations")))
                 .cleanOnValidationError(Boolean.valueOf(properties.getProperty("flyway.cleanOnValidationError")))
+                .validateOnMigrate(Boolean.valueOf(properties.getProperty("flyway.validateOnMigrate")))
                 .load();
     }
 

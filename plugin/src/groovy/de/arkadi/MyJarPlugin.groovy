@@ -6,6 +6,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.file.ConfigurableFileTree
+import org.gradle.api.file.CopySpec
 import org.gradle.api.file.FileCollection
 import org.gradle.api.file.FileTree
 import org.gradle.api.tasks.Delete
@@ -76,12 +77,14 @@ class MyJarPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.apply plugin: 'java-library'
         project.apply plugin: 'ear'
+
         project.defaultTasks('clean', 'flyEar')
 
         project.ext {
             libsDir = project.file('out/libs')
             version = '1.1'
             description = "my jar for flyway"
+            vendor = "postgres"
         }
         project.setGroup('de.arkadi')
         project.setDescription('This is a migration prototype')
@@ -98,10 +101,9 @@ class MyJarPlugin implements Plugin<Project> {
 
 
         project.dependencies {
-            compileOnly('javax:javaee-api:7.0')
-            implementation('org.slf4j:slf4j-api:1.7.25')
-            implementation('org.flywaydb:flyway-core:5.2.0')
-            earlib('org.flywaydb:flyway-core:5.2.0')
+            compileOnly 'javax:javaee-api:7.0'
+            implementation 'org.slf4j:slf4j-api:1.7.25', 'org.flywaydb:flyway-core:5.2.0'
+            earlib 'org.flywaydb:flyway-core:5.2.0'
         }
 
 
@@ -115,13 +117,12 @@ class MyJarPlugin implements Plugin<Project> {
                     srcDirs = ['src/resources']
                 }
             }
-
         }
 
 
         project.compileJava {
-            targetCompatibility = 1.8
-            sourceCompatibility = 1.8
+            targetCompatibility = 11
+            sourceCompatibility = 11
             options.deprecation = false
             options.warnings = false
             options.fork = true
@@ -133,9 +134,9 @@ class MyJarPlugin implements Plugin<Project> {
 
         // TIP simple version to create a task, this one include configure without .configure
         project.task("flyJar", type: Jar, dependsOn: project.classes) {
-            project.
-                    setDescription("create the flyway migration lib")
-            setDestinationDir(project.ext.libsDir)
+
+            project.setDescription("create the flyway migration lib")
+            setDestinationDir(new File("$project.ext.libsDir/jar"))
             setBaseName('flyway')
             setClassifier('ejb')
             setGroup("arkadi")
@@ -145,128 +146,138 @@ class MyJarPlugin implements Plugin<Project> {
             }
 
             metaInf {
-                from(project.sourceSets.main.output.resourcesDir) {
-                    exclude('xml')
+                from("$project.sourceSets.main.output.resourcesDir/sql/$project.ext.vendor") {
                     rename '(.*)_(.*).sql', '$2__$1.sql'
+                    into 'sqls'
                 }
                 from(project.sourceSets.main.resources.files) {
                     include("*.xml")
                 }
+                from("$project.sourceSets.main.output.resourcesDir/properties") {
+                    into 'properties'
+                }
+
+                manifest {
+                    attributes('Tool-Version': project.ext.version)
+                    attributes('Description': project.ext.description)
+                    // in ear archive reference it
+                    // attributes('Class-Path': project.configurations.earlib.files.collect { 'lib/' + it.name }.join(' '))
+                }
+
             }
 
-            manifest {
-                attributes('Tool-Version': project.ext.version)
-                attributes('Description': project.ext.description)
-                attributes('Class-Path': project.configurations.earlib.files.collect { 'lib/' + it.name }.join(' '))
+            // TIP different version to create a task. you can append <.configure{}>
+            project.tasks.create("flyEar", Ear) { Ear ear ->
+                ear.description 'create delayable archive containing the flyJar'
+                ear.destinationDir new File("$project.ext.libsDir/ear")
+                ear.group "arkadi"
+
+                ear.from project.tasks.flyJar
+                ear.lib {
+                    from project.configurations.earlib
+                }
+
+                ear.deploymentDescriptor {
+                    applicationName = "flyway"
+                    displayName = "flyway"
+                    module("flyway-1.1-ejb.jar", "ejb")
+                }
             }
 
-        }
-
-        // TIP different version to create a task. you can append <.configure{}>
-        project.tasks.create("flyEar", Ear) { Task t ->
-            t.setDescription("create delayable archive containing the flyJar")
-            t.setDestinationDir(project.ext.libsDir)
-            t.setGroup("arkadi")
-            t.from "$project.libsDir" include "*.jar"
-            t.deploymentDescriptor {
-                applicationName = "flyway"
-                displayName = "flyway"
-                module("flyway-1.1-ejb.jar", "java")
+            // TIP if you configure this task
+            project.tasks.create("flyClean", Delete) {
+                setGroup("arkadi")
+                setDescription("clean classes dir: " + project.getBuildDir().toString())
+                delete(project.sourceSets.main.output.classesDirs.getSingleFile())
+                delete(project.sourceSets.main.output.resourcesDir)
             }
-        }
 
-        // TIP if you configure this task
-        project.tasks.create("flyClean", Delete) {
-            setGroup("arkadi")
-            setDescription("clean classes dir: " + project.getBuildDir().toString())
-            delete(project.sourceSets.main.output.classesDirs.getSingleFile())
-            delete(project.sourceSets.main.output.resourcesDir)
-        }
+            //TIP configure existing tasks
+            project.tasks.getByName("wrapper").configure {
+                setGroup("arkadi")
+                gradleVersion = '4.10.2'
+                setDescription("set global gradle wrapper: " + gradleVersion)
+            }
 
-        //TIP configure existing tasks
-        project.tasks.getByName("wrapper").configure {
-            setGroup("arkadi")
-            gradleVersion = '4.10.2'
-            setDescription("set global gradle wrapper: " + gradleVersion)
-        }
+            //TIP zipTree() unpack jar file into a fileTree, know you can look and manipulate this files
+            project.tasks.create("runtimeClasspath") {
+                setGroup("arkadi")
+                setDescription("print file on runtimeClasspath")
+                project.configurations.runtimeClasspath
+                        .collect { File file -> project.zipTree(file) }
+                        .forEach { x -> x.getFiles() }
+            }
 
-        //TIP zipTree() unpack jar file into a fileTree, know you can look and manipulate this files
-        project.tasks.create("runtimeClasspath") {
-            setGroup("arkadi")
-            setDescription("print file on runtimeClasspath")
-            project.configurations.runtimeClasspath
-                    .collect { File file -> project.zipTree(file) }
-                    .forEach { x -> x.getFiles() }
-        }
+            project.tasks.create("printResources") {
+                println "\n ========================================================"
+                println " Arkadi: Resources folder \n"
+                println project.sourceSets.main.output.resourcesDir
+                project.sourceSets.main.output.resourcesDir
+                        .listFiles()
+                        .collect { project.relativePath(it) }
+                        .sort()
+                        .each { println "\t\t\t\t\t\t  ".concat(it) }
+            }
 
-        project.tasks.create("printResources") {
-            println "\n ========================================================"
-            println " Arkadi: Resources folder \n"
-            println project.sourceSets.main.output.resourcesDir
-            project.sourceSets.main.output.resourcesDir
-                    .listFiles()
-                    .collect { project.relativePath(it) }
-                    .sort()
-                    .each { println "\t\t\t\t\t\t  ".concat(it) }
-        }
+            // TIP recursion not direct supported
+            project.tasks.create("printClasses") {
+                try {
+                    File classesDir = project.sourceSets.main.output.classesDirs.getSingleFile()
+                    List layout = []
 
-        // TIP recursion not direct supported
-        project.tasks.create("printClasses") {
-            try {
-                File classesDir = project.sourceSets.main.output.classesDirs.getSingleFile()
-                List layout = []
-
-                classesDir.eachFile(FileType.DIRECTORIES, {
-                    it.eachFile(FileType.DIRECTORIES, {
+                    classesDir.eachFile(FileType.DIRECTORIES, {
                         it.eachFile(FileType.DIRECTORIES, {
-                            layout.add(project.relativePath(it))
                             it.eachFile(FileType.DIRECTORIES, {
                                 layout.add(project.relativePath(it))
                                 it.eachFile(FileType.DIRECTORIES, {
+                                    layout.add(project.relativePath(it))
                                     it.eachFile(FileType.DIRECTORIES, {
+                                        it.eachFile(FileType.DIRECTORIES, {
+                                            layout.add(project.relativePath(it))
+                                        })
                                         layout.add(project.relativePath(it))
                                     })
-                                    layout.add(project.relativePath(it))
                                 })
                             })
+                            layout.add(project.relativePath(it))
                         })
                         layout.add(project.relativePath(it))
                     })
-                    layout.add(project.relativePath(it))
-                })
+                    println "\n ========================================================"
+                    println " Arkadi: Classes folder \n"
+                    println classesDir
+                    layout.each { println "\t\t\t\t\t\t  ".concat(it) }
+
+                } catch (FileNotFoundException e) {
+                    println(e.getMessage())
+                }
+            }
+
+
+            // TIP Hocks
+            // TIP printing the dependency graph
+            // TIP %s is a string placeholder
+            // TIP example --> String s = "Monsterbacke";  o.printf( "|%20.7s|%n", s );  // |             Monster|
+            // TIP you can do if  taskGraph.hasTask(flyJar) to set some properties, in the whenReady block
+            // TIP you can taskGraph.before/afterTask{task->println task.name} // takes the current graph-task and do something
+            project.gradle.taskGraph.whenReady {
                 println "\n ========================================================"
-                println " Arkadi: Classes folder \n"
-                println classesDir
-                layout.each { println "\t\t\t\t\t\t  ".concat(it) }
-
-            } catch (FileNotFoundException e) {
-                println(e.getMessage())
+                println " Arkadi: Dependency Graph \n"
+                project.gradle.taskGraph.allTasks.forEach {
+                    task -> project.printf("  > %-30s  %s%n", task, task.description)
+                }
+                println "\n\n"
             }
+
+
+            // TIP project.tasks.findAll{task-> task.startsWith('fly')} this return a list of tasks, you can depend on them.
+            // TIP you can dependOn a coma separated list of tasks in one line
+            // TIP this technique allow if statements if( bool){ construct graph }
+            project.flyJar.dependsOn project.wrapper
+            project.flyEar.dependsOn project.flyJar, project.flyClean
+            project.flyClean.mustRunAfter project.flyJar
         }
 
-
-        // TIP Hocks
-        // TIP printing the dependency graph
-        // TIP %s is a string placeholder
-        // TIP example --> String s = "Monsterbacke";  o.printf( "|%20.7s|%n", s );  // |             Monster|
-        // TIP you can do if  taskGraph.hasTask(flyJar) to set some properties, in the whenReady block
-        // TIP you can taskGraph.before/afterTask{task->println task.name} // takes the current graph-task and do something
-        project.gradle.taskGraph.whenReady {
-            println "\n ========================================================"
-            println " Arkadi: Dependency Graph \n"
-            project.gradle.taskGraph.allTasks.forEach {
-                task -> project.printf("  > %-30s  %s%n", task, task.description)
-            }
-            println "\n\n"
-        }
-
-
-        // TIP project.tasks.findAll{task-> task.startsWith('fly')} this return a list of tasks, you can depend on them.
-        // TIP you can dependOn a coma separated list of tasks in one line
-        // TIP this technique allow if statements if( bool){ construct graph }
-        project.flyJar.dependsOn project.wrapper
-        project.flyEar.dependsOn project.flyJar, project.flyClean
-        project.flyClean.mustRunAfter project.flyJar
     }
 
 }

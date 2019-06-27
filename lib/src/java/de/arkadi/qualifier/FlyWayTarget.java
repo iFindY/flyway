@@ -17,8 +17,7 @@ public @interface FlyWayTarget {
     public enum Target {
         CORE_BASELINE,
         CORE_RELEASES,
-        PROJECT_PRE,
-        PROJECT_POST,
+        PROJECT_RELEASE,
         NON
     }
 }

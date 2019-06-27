@@ -1,4 +1,4 @@
-package de.arkadi
+package de.arkadi.tasks
 
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.TaskAction

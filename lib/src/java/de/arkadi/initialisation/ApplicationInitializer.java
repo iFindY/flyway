@@ -1,7 +1,6 @@
 package de.arkadi.initialisation;
 
 
-
 import de.arkadi.migration.Migration;
 import de.arkadi.qualifier.FlyWayTarget;
 import org.slf4j.Logger;
@@ -21,6 +20,8 @@ import static javax.ejb.TransactionManagementType.BEAN;
 @Singleton(mappedName = "StartUPBean")
 @TransactionManagement(BEAN)
 public class ApplicationInitializer {
+    @Inject
+    boolean enabled;
 
     @Inject
     Logger LOGGER;
@@ -34,32 +35,26 @@ public class ApplicationInitializer {
     Migration coreRelease;
 
     @Inject
-    @FlyWayTarget(PROJECT_PRE)
-    Migration projectPreRelease;
-
-    @Inject
-    @FlyWayTarget(PROJECT_POST)
+    @FlyWayTarget(PROJECT_RELEASE)
     Migration projectPostRelease;
 
 
     @PostConstruct
     private void init() {
-        String enabled = System.getProperty("flyway", "false");
-        if (Boolean.valueOf(enabled)) {
+        LOGGER.info("Flyway migration status : {}", enabled);
+        if (enabled) migrate();
 
-            coreBaseline.baseline();
-            coreBaseline.migrate();
+    }
 
-            projectPreRelease.baseline();
-            projectPreRelease.migrate();
+    private void migrate() {
+        coreBaseline.baseline();
+        coreBaseline.migrate();
 
-            coreRelease.baseline();
-            coreRelease.migrate();
+        coreRelease.baseline();
+        coreRelease.migrate();
 
-            projectPostRelease.baseline();
-            projectPostRelease.migrate();
-        }
-        LOGGER.info("Flyway migration enabled : {}", enabled.toUpperCase());
+        projectPostRelease.baseline();
+        projectPostRelease.migrate();
     }
 
 }
