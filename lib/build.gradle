@@ -9,9 +9,30 @@
  * You would enclose those dependencies within the buildScript block
  */
 buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+
     dependencies {
         classpath files('../plugin/out/libs/flywayPlugin-1.0.jar')
+        classpath "gradle.plugin.fish.payara.gradle.plugins:payara-micro-gradle-plugin:1.0.2"
+        classpath "io.thorntail:thorntail-gradle-plugin:2.4.1.Final-SNAPSHOT"
+
     }
 }
 // flyway flywayServer
+apply plugin: 'thorntail'
+apply plugin: "fish.payara.micro-gradle-plugin"
 apply plugin: 'de.arkadi.plugin.flyway'
+
+dependencies{
+    implementation(enforcedPlatform("io.thorntail:bom-all:2.4.1.Final-SNAPSHOT"))
+    implementation "io.thorntail:jaxrs"
+    implementation "io.thorntail:ejb"
+    implementation "io.thorntail:cdi"
+}

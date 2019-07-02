@@ -1,5 +1,6 @@
 package de.arkadi
 
+
 import groovy.io.FileType
 import groovy.transform.TailRecursive
 import org.gradle.api.Plugin
@@ -73,7 +74,6 @@ import org.gradle.plugins.ear.Ear
 
 class MyJarPlugin implements Plugin<Project> {
 
-
     void apply(Project project) {
         project.apply plugin: 'java-library'
         project.apply plugin: 'ear'
@@ -102,8 +102,8 @@ class MyJarPlugin implements Plugin<Project> {
 
         project.dependencies {
             compileOnly 'javax:javaee-api:7.0'
-            implementation 'org.slf4j:slf4j-api:1.7.25', 'org.flywaydb:flyway-core:5.2.0'
-            earlib 'org.flywaydb:flyway-core:5.2.0'
+            implementation 'org.slf4j:slf4j-api:1.7.5', 'org.flywaydb:flyway-core:5.2.0', 'ch.qos.logback:logback-classic:1.2.3'
+            earlib 'org.flywaydb:flyway-core:5.2.0', 'ch.qos.logback:logback-classic:1.2.3'
         }
 
 
@@ -148,7 +148,7 @@ class MyJarPlugin implements Plugin<Project> {
             metaInf {
                 from("$project.sourceSets.main.output.resourcesDir/sql/$project.ext.vendor") {
                     rename '(.*)_(.*).sql', '$2__$1.sql'
-                    into 'sqls'
+                    into 'sql'
                 }
                 from(project.sourceSets.main.resources.files) {
                     include("*.xml")
@@ -195,7 +195,7 @@ class MyJarPlugin implements Plugin<Project> {
             //TIP configure existing tasks
             project.tasks.getByName("wrapper").configure {
                 setGroup("arkadi")
-                gradleVersion = '4.10.2'
+                gradleVersion = '5.4'
                 setDescription("set global gradle wrapper: " + gradleVersion)
             }
 

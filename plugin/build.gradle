@@ -6,7 +6,7 @@ plugins {
 group 'de.arkadi'
 version '1.0'
 setBuildDir 'out'
-wrapper.gradleVersion="5.4"
+wrapper.gradleVersion = "5.4"
 wrapper.distributionType = Wrapper.DistributionType.ALL
 dependencies {
     compile gradleApi()
@@ -28,7 +28,7 @@ gradlePlugin {
             id = 'de.arkadi.plugin.flyway'
             implementationClass = 'de.arkadi.MyJarPlugin'
         }
-        secondPlugin{
+        secondPlugin {
             id = 'de.arkadi.plugin.flywayServer'
             implementationClass = 'de.arkadi.MyPlugin'
         }

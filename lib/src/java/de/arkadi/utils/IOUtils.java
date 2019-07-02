@@ -51,7 +51,7 @@ public class IOUtils {
             }
 
         } catch (Exception e) {
-            LOGGER.error("can not find file {} in path {} :: {}", file,path, e.getMessage());
+            LOGGER.error("can not find file {} in path {} :: {}", file, path, e.getMessage());
         }
         return path;
     }

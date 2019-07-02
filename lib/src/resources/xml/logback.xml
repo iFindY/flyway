@@ -1,0 +1,29 @@
+<configuration>
+
+<!--    <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>-->
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>flyway.log</file>
+        <encoder>
+            <pattern>====%n[%file:%line] %level %marker %logger{10}  %msg%n====%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--    chapters.configuration logger-->
+    <logger name="chapters.configuration">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+
+    <!--    root logger -->
+    <root level="debug">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
